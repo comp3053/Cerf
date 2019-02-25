@@ -41,7 +41,8 @@ git push
 
 ## References & Resources
 
-Please refer to [iSpace](https://ispace.uic.edu.hk) for more information.
+* Please refer to [iSpace](https://ispace.uic.edu.hk) for more information.
+* Also our [wiki](https://github.com/comp3053/Cerf/wiki) is a good reference.
 
 ## Copyrights
 
