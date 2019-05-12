@@ -1,12 +1,10 @@
 
-public class RecipeIngredient extends Ingredient {
-
-	public RecipeIngredient() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public void updateAmount(double amount) {
-		this.amount = amount;
+public class RecipeIngredient extends Ingredient{
+	public RecipeIngredient(String name, double amount) {
+		super(name, amount);
 	}
 
+	public void UpdateAmount(double amount) {
+		this.SetAmount(amount);
+	}
 }
