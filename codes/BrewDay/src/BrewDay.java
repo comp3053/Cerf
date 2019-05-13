@@ -6,32 +6,32 @@ import java.util.Scanner;
 
 
 public class BrewDay {
-	static Set<Recipe> RecipeList = new HashSet<Recipe>();
-	static Map<String,Double> Storage = new TreeMap<String, Double>(); 
+	private static Set<Recipe> RecipeList = new HashSet<>();
+	private static Map<String,Double> Storage = new TreeMap<>();
 	
-	static StorageIngredient water = new StorageIngredient("water",1000);
-	static StorageIngredient suger = new StorageIngredient("suger",500);
-	static StorageIngredient yeast = new StorageIngredient("yeast",100);
+	private static StorageIngredient water = new StorageIngredient("water",1000);
+	private static StorageIngredient suger = new StorageIngredient("suger",500);
+	private static StorageIngredient yeast = new StorageIngredient("yeast",100);
 	
-	static RecipeIngredient beer1water = new RecipeIngredient("water",500);
-	static RecipeIngredient beer1suger = new RecipeIngredient("suger",300);
-	static RecipeIngredient beer1yeast = new RecipeIngredient("yeast",200);
+	private static RecipeIngredient beer1water = new RecipeIngredient("water",500);
+	private static RecipeIngredient beer1suger = new RecipeIngredient("suger",300);
+	private static RecipeIngredient beer1yeast = new RecipeIngredient("yeast",200);
 	
-	static RecipeIngredient beer2water = new RecipeIngredient("water",500);
-	static RecipeIngredient beer2suger = new RecipeIngredient("suger",100);
-	static RecipeIngredient beer2yeast = new RecipeIngredient("yeast",100);
+	private static RecipeIngredient beer2water = new RecipeIngredient("water",500);
+	private static RecipeIngredient beer2suger = new RecipeIngredient("suger",100);
+	private static RecipeIngredient beer2yeast = new RecipeIngredient("yeast",100);
 	
-	static RecipeIngredient beer3water = new RecipeIngredient("water",800);
-	static RecipeIngredient beer3suger = new RecipeIngredient("suger",300);
-	static RecipeIngredient beer3yeast = new RecipeIngredient("yeast",200);		
+	private static RecipeIngredient beer3water = new RecipeIngredient("water",800);
+	private static RecipeIngredient beer3suger = new RecipeIngredient("suger",300);
+	private static RecipeIngredient beer3yeast = new RecipeIngredient("yeast",200);
 	
-	static Recipe beer1 = new Recipe("Beer1",1000);
-	static Recipe beer2 = new Recipe("Beer2",500);
-	static Recipe beer3 = new Recipe("Beer3",800);
+	private static Recipe beer1 = new Recipe("Beer1",1000);
+	private static Recipe beer2 = new Recipe("Beer2",500);
+	private static Recipe beer3 = new Recipe("Beer3",800);
 	
 	
-	public static Set<Recipe> RecommendRecipe(double batchSize){
-		Set<Recipe> recommendRecipeList = new HashSet<Recipe>();
+	private static Set<Recipe> RecommendRecipe(double batchSize){
+		Set<Recipe> recommendRecipeList = new HashSet<>();
 		
 		for (Recipe recipe : RecipeList) {  
 			Map<String, Double> convertedMap = recipe.convertValue(batchSize);
@@ -48,7 +48,7 @@ public class BrewDay {
 		return recommendRecipeList;
 	}
 	
-	public static void main(String arg[]) {
+	public static void main(String[] arg) {
 
 		beer1.AddIngredient(beer1water);
 		beer1.AddIngredient(beer1suger);
@@ -75,7 +75,7 @@ public class BrewDay {
 		Scanner scan = new Scanner(System.in);
         if (scan.hasNextLine()) {
             String input = scan.nextLine();
-            value = Double.valueOf(input.toString());
+            value = Double.valueOf(input);
         }
 		
         //System.out.println("Please set the storage water:");
