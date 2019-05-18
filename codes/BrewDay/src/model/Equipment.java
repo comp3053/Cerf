@@ -1,3 +1,5 @@
+package model;
+
 public class Equipment {
 	private String name;
 	private double size;
