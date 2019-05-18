@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -11,7 +13,7 @@ public class Recipe {
         this.size = size;
     }
 
-    void AddIngredient(RecipeIngredient ri) {
+    void AddIngredient(@NotNull RecipeIngredient ri) {
         ingredientList.put(ri.GetName(), ri.GetAmount());
     }
 

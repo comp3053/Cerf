@@ -6,8 +6,6 @@ public class Note {
 
 	Note(String content) {
 		this.content = content;
-		//TimeStamp timeStamp = new TimeStamp(System.currentTimeMillis());
-		//SimpleDateFormat format =  new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
 	    this.date = new Date();
 	}
 	

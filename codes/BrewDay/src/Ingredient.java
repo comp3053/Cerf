@@ -4,16 +4,16 @@ public class Ingredient {
 	private double amount;
 	//private String unit;
 	
-	public Ingredient(String name,double amount){
+	Ingredient(String name, double amount){
 		this.name = name;
 		this.amount = amount;
 	}
 	
-	public String GetName() {
+	String GetName() {
 		return this.name;
 	}
 	
-	public double GetAmount() {
+	double GetAmount() {
 		return this.amount;
 	}
 	
@@ -21,7 +21,7 @@ public class Ingredient {
 		this.name = name;
 	}
 	
-	public void SetAmount(double amount) {
+	void SetAmount(double amount) {
 		this.amount = amount;
 	}
 }
