@@ -1,23 +1,23 @@
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 public class Brewing {
 
-    private String date;
+    private Date date;
     private double batchSize;
     private Note note;
     private Recipe recipe;
 
     public Brewing(double batchSize, Recipe recipe) {
-        double timeStamp = System.currentTimeMillis();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.date = format.format(timeStamp);
+        //double timeStamp = System.currentTimeMillis();
+        //SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.date = new Date();
         this.batchSize = batchSize;
         this.note = new Note("");
         this.recipe = recipe;
     }
 
-    public String GetDate() {
+    public Date GetDate() {
         return this.date;
     }
 

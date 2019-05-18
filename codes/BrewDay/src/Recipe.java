@@ -3,7 +3,7 @@ import java.util.TreeMap;
 
 public class Recipe {
     private String name;
-    private Map<String, Double> ingredientList = new TreeMap<String, Double>();
+    private Map<String, Double> ingredientList = new TreeMap<>();
     private double size;
 
     Recipe(String name, double size) {

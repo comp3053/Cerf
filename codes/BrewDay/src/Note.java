@@ -1,21 +1,21 @@
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Note {
 	private String content;
-	private String date;
+	private Date date;
 
-	public Note(String content) {
+	Note(String content) {
 		this.content = content;
-		double timeStamp = System.currentTimeMillis();
-		SimpleDateFormat format =  new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
-	    this.date = format.format(timeStamp);
+		//TimeStamp timeStamp = new TimeStamp(System.currentTimeMillis());
+		//SimpleDateFormat format =  new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
+	    this.date = new Date();
 	}
 	
 	public String GetContent() {
 		return this.content;
 	}
 	
-	public String GetTime() {
+	public Date GetTime() {
 		return this.date;
 	}
 	
