@@ -13,30 +13,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BrewDay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ShoppingList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Brewing.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-7">
@@ -49,6 +25,23 @@
                 <element signature="e#532#533#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
                 <element signature="e#593#594#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Note.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <folding>
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#228#229#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
+                <element signature="e#278#279#0" expanded="true" />
+                <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BrewDay/BrewDay_GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="130">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,42 +173,22 @@
         <option value="$PROJECT_DIR$/src/Recipe.java" />
         <option value="$PROJECT_DIR$/src/BrewDay_GUI.java" />
         <option value="$PROJECT_DIR$/src/BrewDay/BrewDay_GUI.java" />
+        <option value="$PROJECT_DIR$/.classpath" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1358" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BrewDay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BrewDay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BrewDay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BrewDay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BrewDay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BrewDay" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BrewDay" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -227,6 +200,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -281,18 +257,18 @@
       <updated>1557735801444</updated>
       <workItem from="1557735809496" duration="615000" />
       <workItem from="1558149980596" duration="2683000" />
-      <workItem from="1558178963592" duration="5397000" />
+      <workItem from="1558178963592" duration="8046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8695000" />
+    <option name="totallyTimeSpent" value="11344000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2247191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -300,7 +276,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23190348" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -319,21 +295,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShoppingList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -458,10 +419,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BrewDay/BrewDay_GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="130">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -471,9 +457,80 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>JDK 1.8.0_212</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BrewDay</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>jdk1.8.0_212</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
