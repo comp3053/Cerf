@@ -33,7 +33,7 @@ public class Recipe {
         return this.size;
     }
 
-    void setIngredientAmount(String name, double amount, String unit) {
+    public void setIngredientAmount(String name, double amount, String unit) {
         for (Ingredient ingredient : ingredientList) {
             if (ingredient.getName().equals(name)) {
                 ingredientList.remove(ingredient);
@@ -41,5 +41,9 @@ public class Recipe {
         }
         RecipeIngredient ri = new RecipeIngredient(name, amount, unit);
         ingredientList.add(ri);
+    }
+    
+    public void convertValue(double targetValue) {
+    	
     }
 }
