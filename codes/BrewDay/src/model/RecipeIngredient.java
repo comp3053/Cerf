@@ -1,7 +1,7 @@
 package model;
 
 public class RecipeIngredient extends Ingredient {
-    RecipeIngredient(String name, double amount, String unit) {
+    public RecipeIngredient(String name, double amount, String unit) {
         super(name, amount, unit);
     }
 

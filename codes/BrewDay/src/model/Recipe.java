@@ -7,13 +7,13 @@ public class Recipe {
     private ArrayList<RecipeIngredient> ingredientList;
     private double size;
 
-    Recipe(String name, double size) {
+    public Recipe(String name, double size) {
         this.name = name;
         this.size = size;
         ingredientList = new ArrayList<RecipeIngredient>();
     }
 
-    void AddIngredient(RecipeIngredient ri) {
+    public void AddIngredient(RecipeIngredient ri) {
         ingredientList.add(ri);
     }
 
