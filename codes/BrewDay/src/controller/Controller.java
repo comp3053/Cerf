@@ -1,12 +1,11 @@
 package controller;
 
-import model.Recipe;
-import view.*;
-
-import javax.swing.*;
 import model.Equipment;
 import model.Recipe;
 import model.StorageIngredient;
+import view.*;
+
+import javax.swing.*;
 
 public class Controller {
     private static Controller instance = new Controller();

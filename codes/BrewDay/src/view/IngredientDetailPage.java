@@ -1,28 +1,31 @@
 package view;
 
 
-import controller.Controller;
 import model.BrewData;
-import model.Ingredient;
-import model.RecipeIngredient;
 import model.StorageIngredient;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class IngredientDetailPage extends JFrame {
-    private Controller controller;
+public class IngredientDetailPage extends JFrame implements ActionListener {
+    private JTextField nameField = new JTextField();
+    private JTextField amountField = new JTextField();
+    private JButton saveBtn;
+    private StorageIngredient ingredient;
 
-    public IngredientDetailPage(StorageIngredient ingredient) {
+    IngredientDetailPage(StorageIngredient nIngredient) {
         JFrame frame = new JFrame("Brew Day!");
+        ingredient = nIngredient;
 
         Container container = getContentPane();
 
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel(recipe.GetRecipeName(), SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel(ingredient.getName(), SwingConstants.CENTER);
         titlePanel.add(pageTitle);
 
         /* ---------- blank Panel ---------- */
@@ -35,9 +38,9 @@ public class IngredientDetailPage extends JFrame {
         JPanel motionPanel = new JPanel(new GridLayout(3, 7));
         motionPanel.setPreferredSize(new Dimension(100, 100));
 
-        JButton saveBtn = new JButton("Save");
+        saveBtn = new JButton("Save");
         saveBtn.setPreferredSize(new Dimension(100, 50));
-        saveBtn.addActionListener();
+        saveBtn.addActionListener(this);
 
         JButton deleteBtn = new JButton("Delete");
         deleteBtn.setPreferredSize(new Dimension(100, 50));
@@ -54,10 +57,7 @@ public class IngredientDetailPage extends JFrame {
 
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getRecipeListPage(frame);
-        });
+        backBtn.addActionListener(e -> frame.dispose());
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -87,16 +87,13 @@ public class IngredientDetailPage extends JFrame {
         ingredientPanel.setPreferredSize(new Dimension(200, 600));
         //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        JTextField nameField = new JTextField();
-        JTextField amountField = new JTextField();
-        JTextField unitField = new JTextField();
-
         //JPanel ingredientPanel = new JPanel(new FlowLayout());
 
         JScrollPane listScrollPane = new JScrollPane(ingredientPanel);
 
         ingredientPanel.add(nameField);
         ingredientPanel.add(amountField);
+        JTextField unitField = new JTextField();
         ingredientPanel.add(unitField);
 
         container.add(listScrollPane, BorderLayout.CENTER);
@@ -113,5 +110,20 @@ public class IngredientDetailPage extends JFrame {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         frame.setVisible(true);
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == saveBtn) {
+            String name = nameField.getText();
+            double amount = Double.parseDouble(amountField.getText());
+            //String unit = unitField.getText();
+            StorageIngredient newIngredient = new StorageIngredient(name, amount, ingredient.GetUnit());
+            BrewData brewData = new BrewData();
+            ArrayList<StorageIngredient> storageIngredientList = brewData.getStorageIngredientList();
+            storageIngredientList.remove(ingredient);
+            storageIngredientList.add(newIngredient);
+        }
     }
 }

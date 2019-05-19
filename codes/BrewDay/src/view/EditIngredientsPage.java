@@ -7,7 +7,6 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -83,7 +82,7 @@ public class EditIngredientsPage extends JFrame {
         namePane.setPreferredSize(new Dimension(200,100));
         JLabel name = new JLabel("Ingredient Name :");
         JTextPane nameBox = new JTextPane();
-        nameBox.setText(si.GetName());
+        nameBox.setText(si.getName());
         nameBox.setEditable(false);
         nameBox.setPreferredSize(new Dimension(100,20));
         namePane.add(name);

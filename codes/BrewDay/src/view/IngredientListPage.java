@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class IngredientListPage extends JFrame {
 
@@ -77,7 +78,7 @@ public class IngredientListPage extends JFrame {
         brewData = new BrewData();
         
         for(StorageIngredient si : brewData.getStorageIngredientList()) {
-        	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
+        	String ingredient = si.getName() + "    " + si.GetAmount() + si.GetUnit();
         	listModel.addElement(ingredient);
         }
 
@@ -89,7 +90,14 @@ public class IngredientListPage extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    // TODO
+                    BrewData brewData = new BrewData();
+                    ArrayList<StorageIngredient> storageIngredientList = brewData.getStorageIngredientList();
+                    for (StorageIngredient storageIngredient : storageIngredientList) {
+                        if (storageIngredient.getName().equals(jList.getSelectedValue())) {
+                            new IngredientDetailPage(storageIngredient);
+                        }
+                    }
+
                 }
             }
         });
