@@ -36,4 +36,29 @@ public class RecipeController {
 		recipeList.add(newRecipe);
 		BrewData.setRecipeList(recipeList);
 	}
+	
+	public ArrayList<Recipe> recommend(double brewAmount){
+		ArrayList<Recipe> recommend = new ArrayList<Recipe>();
+		
+		for(Recipe r : BrewData.getRecipeList()) {
+			recommend.add(r.convertValue(brewAmount));
+		}
+		
+		for(Recipe r : BrewData.getRecipeList()) {
+			for(RecipeIngredient i : r.GetIngredientList()) {
+				if(!BrewData.getStorageIngredientList().contains(i)) {
+					recommend.remove(r);
+					break;
+				}
+				int index = BrewData.getStorageIngredientList().indexOf(i);
+				if(i.getAmount() > BrewData.getStorageIngredientList().get(index).getAmount()) {
+					recommend.remove(r);
+					break;
+				}
+			}
+		}
+				
+		
+		return recommend;
+	}
 }

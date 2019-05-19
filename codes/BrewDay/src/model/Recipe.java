@@ -43,7 +43,11 @@ public class Recipe {
         ingredientList.add(ri);
     }
     
-    public void convertValue(double targetValue) {
-    	
+    public Recipe convertValue(double targetValue) {
+    	Recipe convertedRecipe = new Recipe(this.name,this.size);
+   		for(RecipeIngredient ri : this.GetIngredientList()) {
+   			ri.setAmount(ri.getAmount()/1000*targetValue);
+   		}
+    	return convertedRecipe;
     }
 }
