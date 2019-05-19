@@ -68,4 +68,22 @@ public class RecipeController {
 		
 		return recommend;
 	}
+	
+	public boolean implment(Recipe r) {
+		ArrayList<Recipe> available = this.recommend(1000);
+		ArrayList<StorageIngredient> newSi = new ArrayList<StorageIngredient>();
+		if(available.contains(r)) {
+			ArrayList<StorageIngredient> si = BrewData.getStorageIngredientList();
+			for(Ingredient i : si) {
+				if(r.GetIngredientList().contains(i)) {
+					newSi.add(new StorageIngredient(i.getName(),si.get(si.indexOf(i)).getAmount()-i.getAmount(),i.getUnit()));
+				}else {
+					newSi.add((StorageIngredient) i);
+				}
+			}
+			BrewData.setStorageIngredientList(newSi);
+			return true;
+		}
+		return false;
+	}
 }

@@ -24,8 +24,4 @@ class Brewing {
     public Note GetNote() {
         return this.note;
     }
-
-    public void implement() {
-
-    }
 }
