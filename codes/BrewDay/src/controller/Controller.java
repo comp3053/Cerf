@@ -4,6 +4,9 @@ import model.Recipe;
 import view.*;
 
 import javax.swing.*;
+import model.Equipment;
+import model.Recipe;
+import model.StorageIngredient;
 
 public class Controller {
     private static Controller instance = new Controller();
@@ -11,10 +14,6 @@ public class Controller {
 
     private Controller() {
         Init();
-    }
-
-    public static Controller GetInstance() {
-        return instance;
     }
 
     private void Init() {
@@ -51,15 +50,37 @@ public class Controller {
         frame.dispose();
     }
 
-    /*
     public void getConfirmPage(JFrame frame, String situation) {
         // ConfirmPage confirmPage = new ConfirmPage(situation);
     	// frame.dispose();
     }
-    */
-
+    
+    public void getAddIngredientsPage(JFrame frame) {
+    	AddIngredientsPage addIngredientPage = new AddIngredientsPage();
+    	frame.dispose();
+    }
+    
+    public void getEditIngredientsPage(JFrame frame, StorageIngredient si) {
+    	EditIngredientsPage editIngredientPage = new EditIngredientsPage(si);
+    	frame.dispose();
+    }
+    
+    public void getAddEquipmentPage(JFrame frame) {
+    	AddEquipmentPage addEquipmentPage = new AddEquipmentPage();
+    	frame.dispose();
+    }
+    
+    public void getEditEquipmentPage(JFrame frame, Equipment equip) {
+    	EditEquipmentPage editEquipmentPage = new EditEquipmentPage(equip);
+    	frame.dispose();
+    }
+    
     public void getNewRecipePage(JFrame frame) {
         NewRecipePage newRecipePage = new NewRecipePage();
         frame.dispose();
+    }
+    
+    public static Controller GetInstance() {
+        return instance;
     }
 }

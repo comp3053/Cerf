@@ -11,7 +11,7 @@ public class Brewing {
     public Brewing(double batchSize, Recipe recipe, Date date) {
         this.date = date;
         this.batchSize = batchSize;
-        this.note = new Note("", date);
+        this.note = new Note("","", date);
         this.recipe = recipe;
     }
 

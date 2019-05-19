@@ -2,6 +2,9 @@ package view;
 
 
 import controller.Controller;
+import model.BrewData;
+import model.RecipeIngredient;
+import model.StorageIngredient;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +12,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class IngredientListPage extends JFrame {
-    private Controller controller;
 
-    public IngredientListPage() {
+	private Controller controller;
+	private BrewData brewData;
+	
+	public IngredientListPage() {
+
         JFrame frame = new JFrame("Brew Day !");
 
         Container container = getContentPane();
@@ -33,7 +39,11 @@ public class IngredientListPage extends JFrame {
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
         JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100, 50));
+        addBtn.setPreferredSize(new Dimension(100,50));
+        addBtn.addActionListener(e -> {
+    		controller = Controller.GetInstance();
+    		controller.getAddIngredientsPage(frame);
+    	});
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
@@ -65,7 +75,12 @@ public class IngredientListPage extends JFrame {
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        listModel.addElement("dddd");
+        brewData = new BrewData();
+        
+        for(StorageIngredient si : brewData.GetStorageIngredientList()) {
+        	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
+        	listModel.addElement(ingredient);
+        }
 
         jList.setModel(listModel);
 

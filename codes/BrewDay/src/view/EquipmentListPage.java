@@ -3,16 +3,21 @@ package view;
 import controller.Controller;
 import model.BrewData;
 import model.Equipment;
+import model.StorageIngredient;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class EquipmentListPage extends JFrame implements ActionListener {
+    private static final long serialVersionUID = 1L;
     private Controller controller;
     private JFrame frame;
+    private BrewData brewData;
 
     public EquipmentListPage() {
         frame = new JFrame("Brew Day !");
@@ -36,6 +41,10 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         motionPanel.setPreferredSize(new Dimension(100, 100));
         JButton addBtn = new JButton("Add");
         addBtn.setPreferredSize(new Dimension(100, 50));
+        addBtn.addActionListener(e -> {
+    		controller = Controller.GetInstance();
+    		controller.getAddEquipmentPage(frame);
+    	});
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
@@ -61,43 +70,42 @@ public class EquipmentListPage extends JFrame implements ActionListener {
 
 
         /* ---------- Content Panel ---------- */
-        JPanel equipmentPanel = new JPanel(new FlowLayout());
+        JPanel equipmentPanel = new JPanel(new BorderLayout());
         equipmentPanel.setPreferredSize(new Dimension(200, 600));
-        //equipmentPanel.setBackground(java.awt.Color.blue);
-        JScrollPane scrollPane = new JScrollPane(equipmentPanel);
+        
+        JList<String> jList = new JList<>();
 
-        /* ----- Button Equipment 1 (test) ----- */
-        JButton equipmentBtn1 = new JButton("Equipment 1");
-        equipmentBtn1.setPreferredSize(new Dimension(300, 50));
-        equipmentBtn1.addActionListener(this);
-        equipmentBtn1.setEnabled(true);
+        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        /* ----- Button Equipment 2 (test) ----- */
-        JButton equipmentBtn2 = new JButton("Equipment 2");
-        equipmentBtn2.setPreferredSize(new Dimension(300, 50));
-        equipmentBtn2.addActionListener(this);
-        equipmentBtn2.setEnabled(true);
+        brewData = new BrewData();
+        
+        for(Equipment e : brewData.GetEquipmentList()) {
+        	String equipment = e.GetName() + "    " + e.GetSize();
+        	listModel.addElement(equipment);
+        }
 
-        /*
-        ----- Button Equipment 3 (test) ----- *//*
-        JButton equipmentBtn3 = new JButton("Equipment 3");
-        equipmentBtn3.setPreferredSize(new Dimension(300, 50));
-        equipmentBtn3.setEnabled(true);
+        jList.setModel(listModel);
 
-        *//* ----- Button Equipment 4 (test) ----- *//*
-        JButton equipmentBtn4 = new JButton("Equipment 4");
-        equipmentBtn4.setPreferredSize(new Dimension(300, 50));
-        equipmentBtn4.setEnabled(true);
-        */
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        equipmentPanel.add(equipmentBtn1);
-        equipmentPanel.add(equipmentBtn2);
-        /*
-        equipmentPanel.add(equipmentBtn3);
-        equipmentPanel.add(equipmentBtn4);
-        */
+        jList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    if (e.getClickCount() == 2) {
+                        int index = jList.getSelectedIndex();
+                        Equipment equipment = brewData.GetEquipmentList().get(index);
+                        controller = Controller.GetInstance();
+                        controller.getEditEquipmentPage(frame,equipment);
+                    }
+                }
+            }
+        });
 
-        container.add(scrollPane, BorderLayout.CENTER);
+        JScrollPane listScrollPane = new JScrollPane(jList);
+        equipmentPanel.add(listScrollPane, BorderLayout.CENTER);
+
+        container.add(equipmentPanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
         container.add(blankPanelL, BorderLayout.WEST);
