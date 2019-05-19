@@ -19,6 +19,7 @@ public class IngredientController {
     }
 	
 	public void addIngredient(String name, double amount, String unit) {
+		System.out.println("name : " + name + " amount : " + amount + " unit : " + unit);
 		StorageIngredient newIngre = new StorageIngredient(name,amount,unit);
 		brewData = new BrewData();
 		storageIngredientList = brewData.getStorageIngredientList();

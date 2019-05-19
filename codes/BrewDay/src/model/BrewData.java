@@ -3,16 +3,12 @@ package model;
 import java.util.ArrayList;
 
 public class BrewData {
-    private ArrayList<Recipe> recipeList;
-    private ArrayList<StorageIngredient> storageIngredientList;
-    private ArrayList<Note> noteList;
-    private ArrayList<Equipment> equipmentList;
+    public static ArrayList<Recipe> recipeList;
+    public static ArrayList<StorageIngredient> storageIngredientList;
+    public static ArrayList<Note> noteList;
+    public static ArrayList<Equipment> equipmentList;
 	
-	public BrewData() {
-		init();
-	}
-	
-	public void init() {
+	public static void init() {
 		recipeList = new ArrayList<Recipe>();
 		storageIngredientList = new ArrayList<StorageIngredient>();
 		equipmentList = new ArrayList<Equipment>();
@@ -29,34 +25,34 @@ public class BrewData {
 	}
 	
     public ArrayList<Recipe> getRecipeList() {
-        return this.recipeList;
+        return BrewData.recipeList;
     }
 
     public void setRecipeList(ArrayList<Recipe> recipeList) {
-        this.recipeList = recipeList;
+    	BrewData.recipeList = recipeList;
     }
 
-    public ArrayList<StorageIngredient> getStorageIngredientList() {
-        return this.storageIngredientList;
+    public static ArrayList<StorageIngredient> getStorageIngredientList() {
+        return BrewData.storageIngredientList;
     }
 
     public void setStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
-        this.storageIngredientList = storageIngredientList;
+    	BrewData.storageIngredientList = storageIngredientList;
     }
 
     public ArrayList<Note> getNoteList() {
-        return noteList;
+        return BrewData.noteList;
     }
 
     public void setNoteList(ArrayList<Note> noteList) {
-        this.noteList = noteList;
+    	BrewData.noteList = noteList;
     }
 
     public ArrayList<Equipment> getEquipmentList() {
-        return equipmentList;
+        return BrewData.equipmentList;
     }
 
     public void setEquipmentList(ArrayList<Equipment> equipmentList) {
-        this.equipmentList = equipmentList;
+    	BrewData.equipmentList = equipmentList;
     }
 }

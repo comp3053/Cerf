@@ -22,7 +22,6 @@ import model.BrewData;
 public class AddIngredientsPage extends JFrame {
 	private Controller controller;
 	private IngredientController ingreController;
-	private BrewData brewData;
 	
 	public AddIngredientsPage() {
         JFrame frame = new JFrame("Brew Day !");
@@ -45,8 +44,6 @@ public class AddIngredientsPage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel ingredientPanel = new JPanel(new FlowLayout());
         ingredientPanel.setPreferredSize(new Dimension(300,600));
-        
-        brewData = new BrewData();
         
         JPanel namePane = new JPanel();
         namePane.setPreferredSize(new Dimension(200,100));
@@ -80,6 +77,7 @@ public class AddIngredientsPage extends JFrame {
         saveBtn.setPreferredSize(new Dimension(100,50));
         saveBtn.addActionListener(e -> {
         	ingreController = IngredientController.GetInstance();
+        	
         	String ingreName = nameBox.getText();
         	double ingreAmount = Double.valueOf(amountBox.getText().toString());
         	String ingreUnit = (String) unit.getSelectedItem();

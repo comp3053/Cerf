@@ -11,12 +11,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class IngredientListPage extends JFrame {
-
 	private Controller controller;
-	private BrewData brewData;
 	
 	public IngredientListPage() {
-
         JFrame frame = new JFrame("Brew Day !");
 
         Container container = getContentPane();
@@ -73,10 +70,10 @@ public class IngredientListPage extends JFrame {
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
-
-        brewData = new BrewData();
         
-        for(StorageIngredient si : brewData.getStorageIngredientList()) {
+        System.out.println(BrewData.storageIngredientList.size());
+        
+        for(StorageIngredient si : BrewData.getStorageIngredientList()) {
         	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
         	listModel.addElement(ingredient);
         }

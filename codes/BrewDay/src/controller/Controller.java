@@ -4,6 +4,8 @@ import model.Recipe;
 import view.*;
 
 import javax.swing.*;
+
+import model.BrewData;
 import model.Equipment;
 import model.Recipe;
 import model.StorageIngredient;
@@ -14,6 +16,7 @@ public class Controller {
 
     private Controller() {
         Init();
+        BrewData.init();
     }
 
     private void Init() {
