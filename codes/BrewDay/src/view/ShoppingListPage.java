@@ -1,27 +1,24 @@
 package view;
 
 import controller.Controller;
-import model.BrewData;
-import model.Recipe;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
-public class RecipeListPage extends JFrame {
+public class ShoppingListPage extends JFrame {
     private Controller controller;
-    private Recipe recipe;
 
-    public RecipeListPage() {
-        JFrame frame = new JFrame("Brew Day !");
+    public ShoppingListPage() {
+        JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel("Recipe List", SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel("Notes:", SwingConstants.CENTER);
         titlePanel.add(pageTitle);
+
 
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());
@@ -32,18 +29,7 @@ public class RecipeListPage extends JFrame {
         /* ---------- motion Panel ---------- */
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
-        JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100, 50));
-        addBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getNewRecipePage(frame);
-        });
-        JButton recmBtn = new JButton("Recommend");
-        recmBtn.setPreferredSize(new Dimension(100, 50));
-        recmBtn.addActionListener(e -> {
-            new RecommendPage();
-            frame.dispose();
-        });
+
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
@@ -57,9 +43,6 @@ public class RecipeListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        motionPanel.add(addBtn);
-        motionPanel.add(new JLabel());
-        motionPanel.add(recmBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(backBtn);
         motionPanel.add(new JLabel());
@@ -69,40 +52,33 @@ public class RecipeListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
 
-
         /* ---------- Content Panel ---------- */
-        JPanel recipePanel = new JPanel(new FlowLayout());
-        recipePanel.setPreferredSize(new Dimension(200, 600));
-        JScrollPane scrollPane = new JScrollPane(recipePanel);
+        JPanel notePanel = new JPanel(new BorderLayout());
+        notePanel.setPreferredSize(new Dimension(200, 600));
 
-        ArrayList<Recipe> recipeList = BrewData.getRecipeList();
+        JList<String> jList = new JList<>();
 
-        JButton[] btnArray = new JButton[recipeList.size()];
+        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        for (int i = 0; i < recipeList.size(); i++) {
-            recipe = recipeList.get(i);
-            btnArray[i] = new JButton(recipe.getRecipeName());
-            btnArray[i].setPreferredSize(new Dimension(300, 50));
+        listModel.addElement("dddd");
 
-            btnArray[i].addActionListener(e -> {
-                controller = Controller.GetInstance();
-                controller.getRecipeDetialPage(frame, recipe);
-            });
+        jList.setModel(listModel);
 
-            recipePanel.add(btnArray[i]);
-        }
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+        JScrollPane listScrollPane = new JScrollPane(jList);
+        notePanel.add(listScrollPane, BorderLayout.CENTER);
 
-        container.add(scrollPane, BorderLayout.CENTER);
+        container.add(notePanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
         container.add(blankPanelL, BorderLayout.WEST);
         container.add(motionPanel, BorderLayout.SOUTH);
 
         frame.add(container);
-        frame.setResizable(false);                    //Forbid window resize (maximize)
-        frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
+        frame.setResizable(false);
+        frame.setSize(new Dimension(600, 800));
+        frame.setLocation(150, 150);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

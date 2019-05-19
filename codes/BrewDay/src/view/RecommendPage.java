@@ -1,19 +1,21 @@
 package view;
 
 import controller.Controller;
-import model.BrewData;
+import controller.RecipeController;
 import model.Recipe;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class RecipeListPage extends JFrame {
+class RecommendPage extends JFrame {
     private Controller controller;
     private Recipe recipe;
+    private JFrame frame;
+    private JPanel recipePanel;
 
-    public RecipeListPage() {
-        JFrame frame = new JFrame("Brew Day !");
+    RecommendPage() {
+        frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
@@ -32,23 +34,33 @@ public class RecipeListPage extends JFrame {
         /* ---------- motion Panel ---------- */
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
-        JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100, 50));
-        addBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getNewRecipePage(frame);
-        });
         JButton recmBtn = new JButton("Recommend");
         recmBtn.setPreferredSize(new Dimension(100, 50));
         recmBtn.addActionListener(e -> {
-            new RecommendPage();
-            frame.dispose();
+            double amount = Double.valueOf(JOptionPane.showInputDialog(frame, "Pleas enter the amount:"));
+            RecipeController recipeController = RecipeController.GetInstance();
+            ArrayList<Recipe> recipeList = recipeController.recommend(amount);
+            JButton[] btnArray = new JButton[recipeList.size()];
+
+            for (int i = 0; i < recipeList.size(); i++) {
+                recipe = recipeList.get(i);
+                btnArray[i] = new JButton(recipe.getRecipeName());
+                btnArray[i].setPreferredSize(new Dimension(300, 50));
+
+                btnArray[i].addActionListener(ee -> {
+                    controller = Controller.GetInstance();
+                    controller.getRecipeDetialPage(frame, recipe);
+                });
+
+                recipePanel.add(btnArray[i]);
+            }
         });
+
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getMainPage(frame);
+            new RecipeListPage();
+            frame.dispose();
         });
 
         motionPanel.add(new JLabel());
@@ -56,8 +68,6 @@ public class RecipeListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(addBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(recmBtn);
         motionPanel.add(new JLabel());
@@ -71,27 +81,9 @@ public class RecipeListPage extends JFrame {
 
 
         /* ---------- Content Panel ---------- */
-        JPanel recipePanel = new JPanel(new FlowLayout());
+        recipePanel = new JPanel(new FlowLayout());
         recipePanel.setPreferredSize(new Dimension(200, 600));
         JScrollPane scrollPane = new JScrollPane(recipePanel);
-
-        ArrayList<Recipe> recipeList = BrewData.getRecipeList();
-
-        JButton[] btnArray = new JButton[recipeList.size()];
-
-        for (int i = 0; i < recipeList.size(); i++) {
-            recipe = recipeList.get(i);
-            btnArray[i] = new JButton(recipe.getRecipeName());
-            btnArray[i].setPreferredSize(new Dimension(300, 50));
-
-            btnArray[i].addActionListener(e -> {
-                controller = Controller.GetInstance();
-                controller.getRecipeDetialPage(frame, recipe);
-            });
-
-            recipePanel.add(btnArray[i]);
-        }
-
 
         container.add(scrollPane, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
