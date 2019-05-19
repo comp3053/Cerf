@@ -15,20 +15,20 @@ public class Ingredient {
         return this.name;
     }
 
-    public double getAmount() {
-        return this.amount;
-    }
-
-    public String getUnit() {
-        return this.unit;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setAmount(double amount) {
+    public double getAmount() {
+        return this.amount;
+    }
+
+    void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getUnit() {
+        return this.unit;
     }
 
     public void setUnit(String unit) {

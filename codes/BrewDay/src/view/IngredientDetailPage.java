@@ -10,11 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class IngredientDetailPage extends JFrame implements ActionListener {
-    private JTextField nameField = new JTextField();
-    private JTextField amountField = new JTextField();
-    private JButton saveBtn;
-    private StorageIngredient ingredient;
+class IngredientDetailPage extends JFrame implements ActionListener {
+    private final JTextField nameField = new JTextField();
+    private final JTextField amountField = new JTextField();
+    private final JButton saveBtn;
+    private final StorageIngredient ingredient;
 
     IngredientDetailPage(StorageIngredient nIngredient) {
         JFrame frame = new JFrame("Brew Day!");

@@ -7,16 +7,19 @@ import model.StorageIngredient;
 import view.*;
 
 import javax.swing.*;
-import model.BrewData;
 
 
 public class Controller {
-    private static Controller instance = new Controller();
+    private static final Controller instance = new Controller();
     private MainPage mainPage;
 
     private Controller() {
         Init();
         BrewData.init();
+    }
+
+    public static Controller GetInstance() {
+        return instance;
     }
 
     private void Init() {
@@ -55,35 +58,31 @@ public class Controller {
 
     public void getConfirmPage(JFrame frame, String situation) {
         // ConfirmPage confirmPage = new ConfirmPage(situation);
-    	// frame.dispose();
+        // frame.dispose();
     }
-    
+
     public void getAddIngredientsPage(JFrame frame) {
-    	AddIngredientsPage addIngredientPage = new AddIngredientsPage();
-    	frame.dispose();
+        AddIngredientsPage addIngredientPage = new AddIngredientsPage();
+        frame.dispose();
     }
-    
+
     public void getEditIngredientsPage(JFrame frame, StorageIngredient si) {
-    	EditIngredientsPage editIngredientPage = new EditIngredientsPage(si);
-    	frame.dispose();
+        EditIngredientsPage editIngredientPage = new EditIngredientsPage(si);
+        frame.dispose();
     }
-    
+
     public void getAddEquipmentPage(JFrame frame) {
-    	AddEquipmentPage addEquipmentPage = new AddEquipmentPage();
-    	frame.dispose();
+        AddEquipmentPage addEquipmentPage = new AddEquipmentPage();
+        frame.dispose();
     }
-    
+
     public void getEditEquipmentPage(JFrame frame, Equipment equip) {
-    	EditEquipmentPage editEquipmentPage = new EditEquipmentPage(equip);
-    	frame.dispose();
+        EditEquipmentPage editEquipmentPage = new EditEquipmentPage(equip);
+        frame.dispose();
     }
-    
+
     public void getNewRecipePage(JFrame frame) {
         NewRecipePage newRecipePage = new NewRecipePage();
         frame.dispose();
-    }
-    
-    public static Controller GetInstance() {
-        return instance;
     }
 }

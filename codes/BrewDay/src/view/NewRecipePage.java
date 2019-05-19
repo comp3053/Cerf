@@ -78,7 +78,7 @@ public class NewRecipePage extends JFrame {
         JLabel amount = new JLabel("Amount:");
         JTextPane amountBox = new JTextPane();
         amountBox.setPreferredSize(new Dimension(30, 20));
-        JComboBox<String> unit = new JComboBox<String>();
+        JComboBox<String> unit = new JComboBox<>();
         unit.addItem("ml");
         unit.addItem("g");
 

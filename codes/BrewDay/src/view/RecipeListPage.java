@@ -74,7 +74,7 @@ public class RecipeListPage extends JFrame {
 
         for (int i = 0; i < recipeList.size(); i++) {
             recipe = recipeList.get(i);
-            btnArray[i] = new JButton(recipe.GetRecipeName());
+            btnArray[i] = new JButton(recipe.getRecipeName());
             btnArray[i].setPreferredSize(new Dimension(300, 50));
 
             btnArray[i].addActionListener(e -> {

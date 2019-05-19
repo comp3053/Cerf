@@ -2,8 +2,7 @@ package model;
 
 import controller.Controller;
 
-public class BrewDay {
-    private Controller controller;
+class BrewDay {
 
     private BrewDay() {
         init();
@@ -18,6 +17,6 @@ public class BrewDay {
     }
 
     private void init() {
-        controller = Controller.GetInstance();
+        Controller controller = Controller.GetInstance();
     }
 }

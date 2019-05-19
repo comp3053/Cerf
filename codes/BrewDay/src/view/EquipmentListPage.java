@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class EquipmentListPage extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
     private Controller controller;
-    private JFrame frame;
+    private final JFrame frame;
 
     public EquipmentListPage() {
         frame = new JFrame("Brew Day !");
@@ -40,9 +40,9 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         JButton addBtn = new JButton("Add");
         addBtn.setPreferredSize(new Dimension(100, 50));
         addBtn.addActionListener(e -> {
-    		controller = Controller.GetInstance();
-    		controller.getAddEquipmentPage(frame);
-    	});
+            controller = Controller.GetInstance();
+            controller.getAddEquipmentPage(frame);
+        });
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
@@ -70,14 +70,14 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         /* ---------- Content Panel ---------- */
         JPanel equipmentPanel = new JPanel(new BorderLayout());
         equipmentPanel.setPreferredSize(new Dimension(200, 600));
-        
+
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        
-        for(Equipment e : BrewData.getEquipmentList()) {
-        	String equipment = e.GetName() + "    " + e.GetSize();
-        	listModel.addElement(equipment);
+
+        for (Equipment e : BrewData.getEquipmentList()) {
+            String equipment = e.GetName() + "    " + e.GetSize();
+            listModel.addElement(equipment);
         }
 
         jList.setModel(listModel);
@@ -92,7 +92,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
                         int index = jList.getSelectedIndex();
                         Equipment equipment = BrewData.getEquipmentList().get(index);
                         controller = Controller.GetInstance();
-                        controller.getEditEquipmentPage(frame,equipment);
+                        controller.getEditEquipmentPage(frame, equipment);
                     }
                 }
             }

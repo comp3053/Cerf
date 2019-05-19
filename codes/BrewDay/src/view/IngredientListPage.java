@@ -36,7 +36,7 @@ public class IngredientListPage extends JFrame {
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
         JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100,50));
+        addBtn.setPreferredSize(new Dimension(100, 50));
         addBtn.addActionListener(e -> {
             controller = Controller.GetInstance();
             controller.getAddIngredientsPage(frame);
@@ -74,7 +74,7 @@ public class IngredientListPage extends JFrame {
 
         System.out.println(BrewData.storageIngredientList.size());
 
-        for(StorageIngredient si : BrewData.getStorageIngredientList()) {
+        for (StorageIngredient si : BrewData.getStorageIngredientList()) {
             String ingredient = si.getName() + "    " + si.getAmount() + si.getUnit();
             listModel.addElement(ingredient);
         }

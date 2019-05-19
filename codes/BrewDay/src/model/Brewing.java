@@ -2,17 +2,15 @@ package model;
 
 import java.util.Date;
 
-public class Brewing {
-    private Date date;
-    private double batchSize;
-    private Note note;
-    private Recipe recipe;
+class Brewing {
+    private final Date date;
+    private final double batchSize;
+    private final Note note;
 
     public Brewing(double batchSize, Recipe recipe, Date date) {
         this.date = date;
         this.batchSize = batchSize;
-        this.note = new Note("","", date);
-        this.recipe = recipe;
+        this.note = new Note("", "", date);
     }
 
     public Date GetDate() {
