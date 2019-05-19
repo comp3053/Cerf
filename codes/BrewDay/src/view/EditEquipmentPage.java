@@ -16,13 +16,11 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.Controller;
-import model.BrewData;
 import model.Equipment;
 import model.StorageIngredient;
 
 public class EditEquipmentPage extends JFrame {
 	private Controller controller;
-	private BrewData brewData;
 	
 	public EditEquipmentPage(Equipment equip) {
         JFrame frame = new JFrame("Brew Day !");
@@ -77,8 +75,6 @@ public class EditEquipmentPage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel ingredientPanel = new JPanel(new FlowLayout());
         ingredientPanel.setPreferredSize(new Dimension(300,600));
-        
-        brewData = new BrewData();
         
         JPanel namePane = new JPanel();
         namePane.setPreferredSize(new Dimension(200,100));

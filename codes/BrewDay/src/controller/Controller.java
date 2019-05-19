@@ -6,14 +6,8 @@ import model.StorageIngredient;
 import view.*;
 
 import javax.swing.*;
-<<<<<<< HEAD
-
 import model.BrewData;
-import model.Equipment;
-import model.Recipe;
-import model.StorageIngredient;
-=======
->>>>>>> 8791112dbd6309298ae50789b05de7a436c8e592
+
 
 public class Controller {
     private static Controller instance = new Controller();

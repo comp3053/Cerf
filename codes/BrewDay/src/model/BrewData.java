@@ -24,11 +24,11 @@ public class BrewData {
 		equipmentList.add(new Equipment("Brewer One", 1000));
 	}
 	
-    public ArrayList<Recipe> getRecipeList() {
+    public static ArrayList<Recipe> getRecipeList() {
         return BrewData.recipeList;
     }
 
-    public void setRecipeList(ArrayList<Recipe> recipeList) {
+    public static void setRecipeList(ArrayList<Recipe> recipeList) {
     	BrewData.recipeList = recipeList;
     }
 
@@ -36,23 +36,23 @@ public class BrewData {
         return BrewData.storageIngredientList;
     }
 
-    public void setStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
+    public static void setStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
     	BrewData.storageIngredientList = storageIngredientList;
     }
 
-    public ArrayList<Note> getNoteList() {
+    public static ArrayList<Note> getNoteList() {
         return BrewData.noteList;
     }
 
-    public void setNoteList(ArrayList<Note> noteList) {
+    public static void setNoteList(ArrayList<Note> noteList) {
     	BrewData.noteList = noteList;
     }
 
-    public ArrayList<Equipment> getEquipmentList() {
+    public static ArrayList<Equipment> getEquipmentList() {
         return BrewData.equipmentList;
     }
 
-    public void setEquipmentList(ArrayList<Equipment> equipmentList) {
+    public static void setEquipmentList(ArrayList<Equipment> equipmentList) {
     	BrewData.equipmentList = equipmentList;
     }
 }

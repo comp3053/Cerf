@@ -17,7 +17,6 @@ import javax.swing.WindowConstants;
 
 import controller.Controller;
 import controller.IngredientController;
-import model.BrewData;
 
 public class AddIngredientsPage extends JFrame {
 	private Controller controller;

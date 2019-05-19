@@ -72,15 +72,10 @@ public class IngredientListPage extends JFrame {
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
         
-<<<<<<< HEAD
         System.out.println(BrewData.storageIngredientList.size());
         
         for(StorageIngredient si : BrewData.getStorageIngredientList()) {
-        	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
-=======
-        for(StorageIngredient si : brewData.getStorageIngredientList()) {
         	String ingredient = si.getName() + "    " + si.GetAmount() + si.GetUnit();
->>>>>>> 8791112dbd6309298ae50789b05de7a436c8e592
         	listModel.addElement(ingredient);
         }
 
@@ -92,8 +87,7 @@ public class IngredientListPage extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    BrewData brewData = new BrewData();
-                    ArrayList<StorageIngredient> storageIngredientList = brewData.getStorageIngredientList();
+                    ArrayList<StorageIngredient> storageIngredientList = BrewData.getStorageIngredientList();
                     for (StorageIngredient storageIngredient : storageIngredientList) {
                         if (storageIngredient.getName().equals(jList.getSelectedValue())) {
                             new IngredientDetailPage(storageIngredient);

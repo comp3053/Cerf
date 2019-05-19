@@ -38,10 +38,9 @@ class EquipmentDetailPage extends JFrame {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
-                BrewData brewData = new BrewData();
-                ArrayList<Equipment> equipmentList = brewData.getEquipmentList();
+                ArrayList<Equipment> equipmentList = BrewData.getEquipmentList();
                 equipmentList.remove(equipment);
-                brewData.setEquipmentList(equipmentList);
+                BrewData.setEquipmentList(equipmentList);
             }
         });
 

@@ -16,7 +16,6 @@ public class EquipmentListPage extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
     private Controller controller;
     private JFrame frame;
-    private BrewData brewData;
 
     public EquipmentListPage() {
         frame = new JFrame("Brew Day !");
@@ -75,10 +74,8 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
-
-        brewData = new BrewData();
         
-        for(Equipment e : brewData.getEquipmentList()) {
+        for(Equipment e : BrewData.getEquipmentList()) {
         	String equipment = e.GetName() + "    " + e.GetSize();
         	listModel.addElement(equipment);
         }
@@ -93,7 +90,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
                 if (e.getClickCount() == 2) {
                     if (e.getClickCount() == 2) {
                         int index = jList.getSelectedIndex();
-                        Equipment equipment = brewData.getEquipmentList().get(index);
+                        Equipment equipment = BrewData.getEquipmentList().get(index);
                         controller = Controller.GetInstance();
                         controller.getEditEquipmentPage(frame,equipment);
                     }
@@ -124,8 +121,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //equipmentDetailPage.setEquipName(e.getActionCommand());
         // frame.dispose();
-        BrewData brewData = new BrewData();
-        ArrayList<Equipment> equipmentList = brewData.getEquipmentList();
+        ArrayList<Equipment> equipmentList = BrewData.getEquipmentList();
         for (Equipment equipment : equipmentList) {
             if (equipment.GetName().equals(e.getActionCommand())) {
                 new EquipmentDetailPage(equipment);

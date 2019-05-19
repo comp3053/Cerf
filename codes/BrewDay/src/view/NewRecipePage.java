@@ -1,14 +1,12 @@
 package view;
 
 import controller.Controller;
-import model.BrewData;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class NewRecipePage extends JFrame {
     private Controller controller;
-    private BrewData brewData;
 
     public NewRecipePage() {
         JFrame frame = new JFrame("Brew Day !");
@@ -63,8 +61,6 @@ public class NewRecipePage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel recipePanel = new JPanel(new FlowLayout());
         recipePanel.setPreferredSize(new Dimension(300, 600));
-
-        brewData = new BrewData();
 
         JPanel recipeNamePane = new JPanel();
         recipeNamePane.setPreferredSize(new Dimension(200, 100));
