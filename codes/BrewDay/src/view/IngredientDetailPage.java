@@ -48,10 +48,9 @@ public class IngredientDetailPage extends JFrame implements ActionListener {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
-                BrewData brewData = new BrewData();
                 ArrayList<StorageIngredient> ingredientList = BrewData.getStorageIngredientList();
                 ingredientList.remove(ingredient);
-                brewData.setStorageIngredientList(ingredientList);
+                BrewData.setStorageIngredientList(ingredientList);
             }
         });
 
@@ -120,7 +119,6 @@ public class IngredientDetailPage extends JFrame implements ActionListener {
             double amount = Double.parseDouble(amountField.getText());
             //String unit = unitField.getText();
             StorageIngredient newIngredient = new StorageIngredient(name, amount, ingredient.GetUnit());
-            // brewData = new BrewData();
             ArrayList<StorageIngredient> storageIngredientList = BrewData.getStorageIngredientList();
             storageIngredientList.remove(ingredient);
             storageIngredientList.add(newIngredient);

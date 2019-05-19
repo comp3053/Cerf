@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class RecipeListPage extends JFrame {
     private Controller controller;
-    private BrewData brewData;
     private Recipe recipe;
 
     public RecipeListPage() {
@@ -69,9 +68,7 @@ public class RecipeListPage extends JFrame {
         recipePanel.setPreferredSize(new Dimension(200, 600));
         JScrollPane scrollPane = new JScrollPane(recipePanel);
 
-        brewData = new BrewData();
-
-        ArrayList<Recipe> recipeList = brewData.getRecipeList();
+        ArrayList<Recipe> recipeList = BrewData.getRecipeList();
 
         JButton[] btnArray = new JButton[recipeList.size()];
 

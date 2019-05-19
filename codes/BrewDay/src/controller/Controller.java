@@ -7,6 +7,7 @@ import model.StorageIngredient;
 import view.*;
 
 import javax.swing.*;
+import model.BrewData;
 
 
 public class Controller {

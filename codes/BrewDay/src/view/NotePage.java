@@ -76,8 +76,7 @@ public class NotePage extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
                     String noteContent = jList.getSelectedValue();
-                    BrewData brewData = new BrewData();
-                    ArrayList<Note> noteList = brewData.getNoteList();
+                    ArrayList<Note> noteList = BrewData.getNoteList();
                     for (Note note : noteList) {
                         if (note.getTitle().equals(noteContent)) {
                             new NoteDetailPage(note);

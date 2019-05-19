@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class RecipeDetailPage extends JFrame {
     private Controller controller;
-    private BrewData brewData;
 
     public RecipeDetailPage(Recipe recipe) {
         JFrame frame = new JFrame("Brew Day !");
@@ -43,10 +42,9 @@ public class RecipeDetailPage extends JFrame {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
-                brewData = new BrewData();
-                ArrayList<Recipe> recipeList = brewData.getRecipeList();
+                ArrayList<Recipe> recipeList = BrewData.getRecipeList();
                 recipeList.remove(recipe);
-                brewData.setRecipeList(recipeList);
+                BrewData.setRecipeList(recipeList);
             }
         });
 
@@ -88,8 +86,6 @@ public class RecipeDetailPage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel recipePanel = new JPanel(new FlowLayout());
         recipePanel.setPreferredSize(new Dimension(200, 600));
-
-        brewData = new BrewData();
 
         JList<String> jList = new JList<>();
         DefaultListModel<String> listModel = new DefaultListModel<>();

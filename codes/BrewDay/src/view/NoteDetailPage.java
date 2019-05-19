@@ -38,10 +38,9 @@ class NoteDetailPage extends JFrame {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
-                BrewData brewData = new BrewData();
-                ArrayList<Note> noteList = brewData.getNoteList();
+                ArrayList<Note> noteList = BrewData.getNoteList();
                 noteList.remove(note);
-                brewData.setNoteList(noteList);
+                BrewData.setNoteList(noteList);
             }
         });
 
