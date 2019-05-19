@@ -1,17 +1,8 @@
 package controller;
 
+import model.*;
+
 import java.util.ArrayList;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-
-import model.BrewData;
-import model.Ingredient;
-import model.Recipe;
-import model.RecipeIngredient;
-import model.StorageIngredient;
-import model.ShoppingList;
 
 public class RecipeController {
 	private static RecipeController instance = new RecipeController();
@@ -68,7 +59,7 @@ public class RecipeController {
 			ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>();
 			
 			for(Ingredient i : recipe.GetIngredientList()) {
-				double x = i.getAmount() - BrewData.getStorageIngredientList().get(index).getAmount();
+				double x = i.getAmount() - BrewData.getStorageIngredientList().get(0).getAmount();
 				if(x > 0) {
 					Ingredient shopIngre = new Ingredient(i.getName(),x,i.getUnit());
 				}

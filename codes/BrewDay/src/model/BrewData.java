@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 public class BrewData {
@@ -14,7 +13,6 @@ public class BrewData {
         storageIngredientList = new ArrayList<>();
         equipmentList = new ArrayList<>();
 
-        /*
         Recipe beer = new Recipe("Beer", 1000);
         beer.AddIngredient(new RecipeIngredient("Water", 500, "ml"));
         recipeList.add(beer);
@@ -24,9 +22,8 @@ public class BrewData {
         storageIngredientList.add(new StorageIngredient("Yeast", 5000, "ml"));
 
         equipmentList.add(new Equipment("Brewer One", 1000));
-        */
 
-        Connection c;
+        /*Connection c;
         Statement stmt;
         try {
             //Connect to the Database : Brewing.db
@@ -136,7 +133,7 @@ public class BrewData {
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ":" + e.getMessage());
             System.exit(0);
-        }
+        }*/
     }
 
     public static ArrayList<Recipe> getRecipeList() {
