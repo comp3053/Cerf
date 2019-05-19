@@ -7,9 +7,11 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 import model.BrewData;
+import model.Ingredient;
 import model.Recipe;
 import model.RecipeIngredient;
 import model.StorageIngredient;
+import model.ShoppingList;
 
 public class RecipeController {
 	private static RecipeController instance = new RecipeController();
@@ -44,7 +46,7 @@ public class RecipeController {
 			recommend.add(r.convertValue(brewAmount));
 		}
 		
-		for(Recipe r : BrewData.getRecipeList()) {
+		for(Recipe r : recommend) {
 			for(RecipeIngredient i : r.GetIngredientList()) {
 				if(!BrewData.getStorageIngredientList().contains(i)) {
 					recommend.remove(r);
@@ -58,6 +60,20 @@ public class RecipeController {
 			}
 		}
 				
+		if(recommend.size() == 0) {
+			Recipe recipe = BrewData.getRecipeList().get(0);
+			recommend.add(recipe);
+			ShoppingList shoppingList = new ShoppingList();
+			
+			ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>();
+			
+			for(Ingredient i : recipe.GetIngredientList()) {
+				double x = i.getAmount() - BrewData.getStorageIngredientList().get(index).getAmount();
+				if(x > 0) {
+					Ingredient shopIngre = new Ingredient(i.getName(),x,i.getUnit());
+				}
+			}
+		}
 		
 		return recommend;
 	}
