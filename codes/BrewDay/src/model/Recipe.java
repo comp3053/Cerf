@@ -17,7 +17,7 @@ public class Recipe {
         ingredientList.put(ri.GetName(), ri.GetAmount());
     }
 
-    String GetRecipeName() {
+    public String GetRecipeName() {
         return this.name;
     }
 
