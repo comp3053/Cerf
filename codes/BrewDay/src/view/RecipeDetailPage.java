@@ -45,6 +45,8 @@ public class RecipeDetailPage extends JFrame {
                 ArrayList<Recipe> recipeList = BrewData.getRecipeList();
                 recipeList.remove(recipe);
                 BrewData.setRecipeList(recipeList);
+                new RecipeListPage();
+                frame.dispose();
             }
         });
 
@@ -91,7 +93,7 @@ public class RecipeDetailPage extends JFrame {
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
         for (RecipeIngredient ri : recipe.GetIngredientList()) {
-            String ingredient = ri.getName() + "    " + ri.GetAmount() + ri.GetUnit();
+            String ingredient = ri.getName() + "    " + ri.getAmount() + ri.getUnit();
             listModel.addElement(ingredient);
         }
 

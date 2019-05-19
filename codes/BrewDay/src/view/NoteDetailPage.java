@@ -41,6 +41,8 @@ class NoteDetailPage extends JFrame {
                 ArrayList<Note> noteList = BrewData.getNoteList();
                 noteList.remove(note);
                 BrewData.setNoteList(noteList);
+                new NotePage();
+                frame.dispose();
             }
         });
 

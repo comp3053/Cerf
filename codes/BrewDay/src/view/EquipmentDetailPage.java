@@ -8,9 +8,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 class EquipmentDetailPage extends JFrame {
-    private JTextPane equipPane;
-    private double equipAmount;
-
     EquipmentDetailPage(Equipment equipment) {
         JFrame frame = new JFrame("Brew Day!");
 
@@ -70,7 +67,7 @@ class EquipmentDetailPage extends JFrame {
         equipPanel.setPreferredSize(new Dimension(200, 600));
         //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        equipPane = new JTextPane();
+        JTextPane equipPane = new JTextPane();
         //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
 
         equipPane.setEditable(false);

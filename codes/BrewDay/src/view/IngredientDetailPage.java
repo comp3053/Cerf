@@ -51,6 +51,8 @@ public class IngredientDetailPage extends JFrame implements ActionListener {
                 ArrayList<StorageIngredient> ingredientList = BrewData.getStorageIngredientList();
                 ingredientList.remove(ingredient);
                 BrewData.setStorageIngredientList(ingredientList);
+                new IngredientListPage();
+                frame.dispose();
             }
         });
 
@@ -118,7 +120,7 @@ public class IngredientDetailPage extends JFrame implements ActionListener {
             String name = nameField.getText();
             double amount = Double.parseDouble(amountField.getText());
             //String unit = unitField.getText();
-            StorageIngredient newIngredient = new StorageIngredient(name, amount, ingredient.GetUnit());
+            StorageIngredient newIngredient = new StorageIngredient(name, amount, ingredient.getUnit());
             ArrayList<StorageIngredient> storageIngredientList = BrewData.getStorageIngredientList();
             storageIngredientList.remove(ingredient);
             storageIngredientList.add(newIngredient);

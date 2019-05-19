@@ -1,5 +1,6 @@
 package controller;
 
+import model.BrewData;
 import model.Equipment;
 import model.Recipe;
 import model.StorageIngredient;
