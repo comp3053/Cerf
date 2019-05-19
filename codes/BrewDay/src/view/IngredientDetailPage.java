@@ -5,6 +5,7 @@ import controller.Controller;
 import model.BrewData;
 import model.Ingredient;
 import model.RecipeIngredient;
+import model.StorageIngredient;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class IngredientDetailPage extends JFrame {
     private Controller controller;
 
-    public IngredientDetailPage(Ingredient ingredient) {
+    public IngredientDetailPage(StorageIngredient ingredient) {
         JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
@@ -34,24 +35,22 @@ public class IngredientDetailPage extends JFrame {
         JPanel motionPanel = new JPanel(new GridLayout(3, 7));
         motionPanel.setPreferredSize(new Dimension(100, 100));
 
-        JButton saveBtn = new JButton("SAVE");
+        JButton saveBtn = new JButton("Save");
         saveBtn.setPreferredSize(new Dimension(100, 50));
+        saveBtn.addActionListener();
 
-        JButton deleteBtn = new JButton("DELETE");
+        JButton deleteBtn = new JButton("Delete");
         deleteBtn.setPreferredSize(new Dimension(100, 50));
         deleteBtn.addActionListener(e -> {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
                 BrewData brewData = new BrewData();
-                ArrayList<Ingredient> ingredientList = brewData.get();
+                ArrayList<StorageIngredient> ingredientList = brewData.getStorageIngredientList();
                 ingredientList.remove(ingredient);
-                brewData.see(ingredientList);
+                brewData.setStorageIngredientList(ingredientList);
             }
         });
-
-        JButton useBtn = new JButton("USE");
-        useBtn.setPreferredSize(new Dimension(100, 50));
 
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
@@ -84,37 +83,32 @@ public class IngredientDetailPage extends JFrame {
 
 
         /* ---------- Content Panel ---------- */
-        JPanel recipePanel = new JPanel(new FlowLayout());
-        recipePanel.setPreferredSize(new Dimension(200, 600));
+        JPanel ingredientPanel = new JPanel(new FlowLayout());
+        ingredientPanel.setPreferredSize(new Dimension(200, 600));
+        //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        brewData = new BrewData();
+        JTextField nameField = new JTextField();
+        JTextField amountField = new JTextField();
+        JTextField unitField = new JTextField();
 
-        JList<String> jList = new JList<>();
-        DefaultListModel<String> listModel = new DefaultListModel<>();
+        //JPanel ingredientPanel = new JPanel(new FlowLayout());
 
-        for (RecipeIngredient ri : recipe.GetIngredientList()) {
-            String ingredient = ri.GetName() + "    " + ri.GetAmount() + ri.GetUnit();
-            listModel.addElement(ingredient);
-        }
+        JScrollPane listScrollPane = new JScrollPane(ingredientPanel);
 
-        jList.setModel(listModel);
+        ingredientPanel.add(nameField);
+        ingredientPanel.add(amountField);
+        ingredientPanel.add(unitField);
 
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        JScrollPane listScrollPane = new JScrollPane(jList);
-        recipePanel.add(listScrollPane, BorderLayout.CENTER);
-
-        container.add(recipePanel, BorderLayout.CENTER);
+        container.add(listScrollPane, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
         container.add(blankPanelL, BorderLayout.WEST);
         container.add(motionPanel, BorderLayout.SOUTH);
 
         frame.add(container);
-        frame.setResizable(false);                    //Forbid window resize (maximize)
-        frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
-        //frame.setAlwaysOnTop(true);
+        frame.setResizable(false);
+        frame.setSize(new Dimension(600, 800));
+        frame.setLocation(150, 150);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

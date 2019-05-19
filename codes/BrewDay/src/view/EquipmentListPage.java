@@ -3,15 +3,14 @@ package view;
 import controller.Controller;
 import model.BrewData;
 import model.Equipment;
-import model.StorageIngredient;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class EquipmentListPage extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;

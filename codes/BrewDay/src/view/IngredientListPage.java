@@ -3,7 +3,6 @@ package view;
 
 import controller.Controller;
 import model.BrewData;
-import model.RecipeIngredient;
 import model.StorageIngredient;
 
 import javax.swing.*;
