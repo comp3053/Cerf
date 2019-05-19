@@ -108,9 +108,9 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         container.add(motionPanel, BorderLayout.SOUTH);
 
         frame.add(container);
-        frame.setResizable(false);                    //Forbid window resize (maximize)
-        frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
+        frame.setResizable(false);
+        frame.setSize(new Dimension(600, 800));
+        frame.setLocation(150, 150);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

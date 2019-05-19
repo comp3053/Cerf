@@ -51,6 +51,8 @@ public class IngredientDetailPage extends JFrame implements ActionListener {
                 ArrayList<StorageIngredient> ingredientList = BrewData.getStorageIngredientList();
                 ingredientList.remove(ingredient);
                 BrewData.setStorageIngredientList(ingredientList);
+                new IngredientListPage();
+                frame.dispose();
             }
         });
 

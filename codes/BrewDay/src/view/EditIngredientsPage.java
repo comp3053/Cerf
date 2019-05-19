@@ -1,21 +1,10 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
 import controller.Controller;
 import model.StorageIngredient;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class EditIngredientsPage extends JFrame {
 	private Controller controller;

@@ -45,6 +45,8 @@ public class RecipeDetailPage extends JFrame {
                 ArrayList<Recipe> recipeList = BrewData.getRecipeList();
                 recipeList.remove(recipe);
                 BrewData.setRecipeList(recipeList);
+                new RecipeListPage();
+                frame.dispose();
             }
         });
 
