@@ -5,45 +5,41 @@ import java.util.ArrayList;
 public class Recipe {
     private String name;
     private ArrayList<RecipeIngredient> ingredientList;
-    private double size;
+    private final double size;
 
     public Recipe(String name, double size) {
         this.name = name;
         this.size = size;
-        ingredientList = new ArrayList<RecipeIngredient>();
+        ingredientList = new ArrayList<>();
     }
 
     public void AddIngredient(RecipeIngredient ri) {
         ingredientList.add(ri);
     }
 
-    public String GetRecipeName() {
+    public String getRecipeName() {
         return this.name;
+    }
+
+    void setRecipeName(String name) {
+        this.name = name;
     }
 
     public ArrayList<RecipeIngredient> GetIngredientList() {
         return this.ingredientList;
     }
 
-    public double GetSize() {
+    public double getSize() {
         return this.size;
     }
 
-    public void SetRecipeName(String name) {
-        this.name = name;
-    }
-
-    public void SetIngredientAmount(String name, double amount, String unit) {
-        ingredientList.remove(name);
+    void setIngredientAmount(String name, double amount, String unit) {
+        for (Ingredient ingredient : ingredientList) {
+            if (ingredient.getName().equals(name)) {
+                ingredientList.remove(ingredient);
+            }
+        }
         RecipeIngredient ri = new RecipeIngredient(name, amount, unit);
         ingredientList.add(ri);
     }
-
-//    Map<String, Double> convertValue(double batchSize) {
-//        Map<String, Double> convertedIngredientList = new TreeMap<>();
-//        for (String key : ingredientList.keySet()) {
-//            convertedIngredientList.put(key, ingredientList.get(key) / (this.size) * batchSize);
-//        }
-//        return convertedIngredientList;
-//    }
 }

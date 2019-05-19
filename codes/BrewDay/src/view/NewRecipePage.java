@@ -58,7 +58,7 @@ public class NewRecipePage extends JFrame {
         ArrayList<String> showedList = new ArrayList<String>();
         
         for(RecipeIngredient r : ri) {
-        	String ingredient = r.getName() + "    " + r.GetAmount() + r.GetUnit();
+        	String ingredient = r.getName() + "    " + r.getAmount() + r.getUnit();
         	listModel.addElement(ingredient);
         }
         
@@ -137,7 +137,8 @@ public class NewRecipePage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-         
+
+        
         container.add(recipePanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
@@ -159,7 +160,7 @@ public class NewRecipePage extends JFrame {
     	DefaultListModel<String> updateModel = new DefaultListModel<String>();
     	
         for(RecipeIngredient r : ri) {
-        	String ingredient = r.getName() + "    " + r.GetAmount() + r.GetUnit();
+        	String ingredient = r.getName() + "    " + r.getAmount() + r.getUnit();
         	updateModel.addElement(ingredient);
         }
     	return updateModel;

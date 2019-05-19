@@ -20,7 +20,7 @@ public class RecipeDetailPage extends JFrame {
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel(recipe.GetRecipeName(), SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel(recipe.getRecipeName(), SwingConstants.CENTER);
         titlePanel.add(pageTitle);
 
         /* ---------- blank Panel ---------- */

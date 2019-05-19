@@ -1,9 +1,7 @@
 package model;
 
-import java.util.*;
-import java.lang.*;
 import java.sql.*;
-import java.io.*;
+import java.util.ArrayList;
 
 public class Data {
 	private ArrayList<Recipe> recipeList;
@@ -11,9 +9,7 @@ public class Data {
 	private ArrayList<Equipment> equipmentList;
 	private ArrayList<Note> noteList;
 	//private ArrayList<Brewing> brewingList;
-	
-	
-	
+
 	public Data() {
 		init();
 	}
@@ -52,15 +48,15 @@ public class Data {
             int recipeNum = 0;
 			while(rs.next()){
 				
-				Recipe r = new Recipe(null,0);
+				Recipe r_1 = new Recipe(null,0);
                 
 				//int RecipeID = rs.getInt("IngredientID");
-                r.SetRecipeName(rs.getString("RecipeName"));;
+                r_1.setRecipeName(rs.getString("RecipeName"));;
                 
 
                 System.out.println("RecipeName = " + rs.getString("RecipeName"));
-                System.out.println("RecipeName = " + r.GetRecipeName());
-                A_a.add(r);
+                System.out.println("RecipeName = " + r_1.getRecipeName());
+                A_a.add(r_1);
                 //System.out.println("RecipeName = " + A_a.get(0).GetRecipeName());
                 recipeNum++;
                 //System.out.println(recipeNum);
@@ -69,7 +65,7 @@ public class Data {
 			
 			
 			for (int i = 0;i<recipeNum;i++) {
-				
+
 				Recipe r = new Recipe(null,0);
 				
 				String sql = "SELECT IngredientName,Amount,Unit FROM RecipeIngredient WHERE RecipeID LIKE ?";
@@ -80,8 +76,9 @@ public class Data {
 	            //Recipe rr = null;
 				while(rss.next()){
 	                //int RecipeID = rs.getInt("IngredientID");
-	                r.SetIngredientAmount(rss.getString("IngredientName"), rss.getDouble("Amount"));
-	                r.SetRecipeName(A_a.get(i).GetRecipeName());
+
+	                r.setIngredientAmount(rss.getString("IngredientName"), rss.getDouble("Amount"),rss.getString("Unit"));
+	                r.setRecipeName(A_a.get(i).getRecipeName());
 	
 	                //System.out.println("RecipeID = " + RecipeID);
 	                System.out.println("IngredientName = " + rss.getString("IngredientName"));
@@ -95,22 +92,23 @@ public class Data {
 			}
 			
 			for(int j = 0;j<A_r.size();j++) {
-				System.out.println(A_r.size() + A_r.get(j).GetRecipeName() + "|" + A_r.get(j).GetIngredientList());
+				System.out.println(A_r.size());
+				System.out.println(A_r.size() + A_r.get(j).getRecipeName() + "|" + A_r.get(j).GetIngredientList().get(j).getName() + A_r.get(j).GetIngredientList().get(j).getAmount() + A_r.get(j).GetIngredientList().get(j).getUnit());
 			}
 			//----------------------------------------------------------------
 			
 			
 			//----------------------------------------------------------------
 			//Select IngredientName,Amount For ArrayList<Ingredient>
-			ResultSet rsss = stmt.executeQuery("SELECT IngredientName,Amount FROM StorageIngredient WHERE 1=1;");
+			ResultSet rsss = stmt.executeQuery("SELECT IngredientName,Amount,Unit FROM StorageIngredient WHERE 1=1;");
             //int recipeNum = 0;
 			while(rsss.next()){
 				
-				StorageIngredient si = new StorageIngredient(null,0);
+				StorageIngredient si = new StorageIngredient(null,0,null);
                 
 				//int RecipeID = rs.getInt("IngredientID");
-                si.SetName(rsss.getString("IngredientName"));
-                si.SetAmount(rsss.getDouble("Amount"));
+                si.setName(rsss.getString("IngredientName"));
+                si.setAmount(rsss.getDouble("Amount"));
                 
 
                 
@@ -123,7 +121,7 @@ public class Data {
 			
 			
 			for(int k = 0;k<A_si.size();k++) {
-				System.out.println(A_si.get(k).GetName() + "|" + A_si.get(k).GetAmount());
+				System.out.println(A_si.get(k).getName() + "|" + A_si.get(k).getAmount());
 			}
 			//-----------------------------------------------------------------
 			
@@ -163,10 +161,10 @@ public class Data {
 			
 			while(rs5.next()){
 				
-				Note n = new Note(null);
+				Note n = new Note(null,null,null);
                 
 				//int RecipeID = rs.getInt("IngredientID");
-                n.SetContent(rs5.getString("Content"));
+                n.setContent(rs5.getString("Content"));
                 
 
                 
@@ -178,7 +176,7 @@ public class Data {
 			
 			
 			for(int k = 0;k<A_n.size();k++) {
-				System.out.println(A_n.get(k).GetContent());
+				System.out.println(A_n.get(k).getContent());
 			}
 			//----------------------------------------------------------------
 			
