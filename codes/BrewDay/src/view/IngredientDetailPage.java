@@ -22,7 +22,7 @@ public class IngredientDetailPage extends JFrame {
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel(recipe.GetRecipeName(), SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel(ingredient.GetName(), SwingConstants.CENTER);
         titlePanel.add(pageTitle);
 
         /* ---------- blank Panel ---------- */
@@ -37,7 +37,6 @@ public class IngredientDetailPage extends JFrame {
 
         JButton saveBtn = new JButton("Save");
         saveBtn.setPreferredSize(new Dimension(100, 50));
-        saveBtn.addActionListener();
 
         JButton deleteBtn = new JButton("Delete");
         deleteBtn.setPreferredSize(new Dimension(100, 50));
