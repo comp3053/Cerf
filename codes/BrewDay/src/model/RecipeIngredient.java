@@ -6,6 +6,6 @@ public class RecipeIngredient extends Ingredient {
     }
 
     public void UpdateAmount(double amount) {
-        this.SetAmount(amount);
+        this.setAmount(amount);
     }
 }

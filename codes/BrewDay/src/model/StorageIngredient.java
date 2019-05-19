@@ -6,10 +6,10 @@ public class StorageIngredient extends Ingredient {
     }
 
     public void AddAmount(double amount) {
-        this.SetAmount(this.GetAmount() + amount);
+        this.setAmount(this.getAmount() + amount);
     }
 
     public void SubtractAmount(double amount) {
-        this.SetAmount(this.GetAmount() - amount);
+        this.setAmount(this.getAmount() - amount);
     }
 }

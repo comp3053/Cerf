@@ -90,7 +90,7 @@ public class EditIngredientsPage extends JFrame {
         JTextPane amountBox = new JTextPane();
         amountBox.setPreferredSize(new Dimension(100,20));
         JLabel unit = new JLabel();
-        unit.setText(si.GetUnit());
+        unit.setText(si.getUnit());
         
         amountPane.add(amount);
         amountPane.add(amountBox);

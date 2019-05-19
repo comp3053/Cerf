@@ -12,9 +12,9 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class IngredientListPage extends JFrame {
-	private Controller controller;
-	
-	public IngredientListPage() {
+    private Controller controller;
+
+    public IngredientListPage() {
         JFrame frame = new JFrame("Brew Day !");
 
         Container container = getContentPane();
@@ -38,9 +38,9 @@ public class IngredientListPage extends JFrame {
         JButton addBtn = new JButton("ADD");
         addBtn.setPreferredSize(new Dimension(100,50));
         addBtn.addActionListener(e -> {
-    		controller = Controller.GetInstance();
-    		controller.getAddIngredientsPage(frame);
-    	});
+            controller = Controller.GetInstance();
+            controller.getAddIngredientsPage(frame);
+        });
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
@@ -71,12 +71,12 @@ public class IngredientListPage extends JFrame {
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        
+
         System.out.println(BrewData.storageIngredientList.size());
-        
+
         for(StorageIngredient si : BrewData.getStorageIngredientList()) {
-        	String ingredient = si.getName() + "    " + si.GetAmount() + si.GetUnit();
-        	listModel.addElement(ingredient);
+            String ingredient = si.getName() + "    " + si.getAmount() + si.getUnit();
+            listModel.addElement(ingredient);
         }
 
         jList.setModel(listModel);
