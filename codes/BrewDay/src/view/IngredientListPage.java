@@ -76,7 +76,7 @@ public class IngredientListPage extends JFrame {
 
         brewData = new BrewData();
         
-        for(StorageIngredient si : brewData.GetStorageIngredientList()) {
+        for(StorageIngredient si : brewData.getStorageIngredientList()) {
         	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
         	listModel.addElement(ingredient);
         }

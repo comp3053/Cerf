@@ -28,30 +28,6 @@ public class BrewData {
 		equipmentList.add(new Equipment("Brewer One", 1000));
 	}
 	
-	public ArrayList<Recipe> GetRecipeList(){
-		return this.recipeList;
-	}
-	
-	public void SetRecipeList(ArrayList<Recipe> recipeList) {
-		this.recipeList = recipeList;
-	}
-	
-	public ArrayList<StorageIngredient> GetStorageIngredientList(){
-		return this.storageIngredientList;
-	}
-	
-	public void SetStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
-		this.storageIngredientList = storageIngredientList;
-	}
-	
-	public ArrayList<Equipment> GetEquipmentList(){
-		return this.equipmentList;
-	}
-	
-	public void SetEquipmentList(ArrayList<Equipment> equipmentList) {
-		this.equipmentList = equipmentList;
-	}
-
     public ArrayList<Recipe> getRecipeList() {
         return this.recipeList;
     }
