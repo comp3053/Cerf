@@ -71,7 +71,7 @@ public class RecipeListPage extends JFrame {
 
         brewData = new BrewData();
 
-        ArrayList<Recipe> recipeList = brewData.GetRecipeList();
+        ArrayList<Recipe> recipeList = brewData.getRecipeList();
 
         JButton[] btnArray = new JButton[recipeList.size()];
 

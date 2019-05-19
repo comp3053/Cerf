@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class BrewData {
     private ArrayList<Recipe> recipeList;
     private ArrayList<StorageIngredient> storageIngredientList;
+    private ArrayList<Note> noteList;
 
     public BrewData() {
         init();
     }
 
-    public void init() {
+    private void init() {
         recipeList = new ArrayList<>();
         storageIngredientList = new ArrayList<>();
 
@@ -19,19 +20,27 @@ public class BrewData {
         recipeList.add(beer);
     }
 
-    public ArrayList<Recipe> GetRecipeList() {
+    public ArrayList<Recipe> getRecipeList() {
         return this.recipeList;
     }
 
-    public void SetRecipeList(ArrayList<Recipe> recipeList) {
+    public void setRecipeList(ArrayList<Recipe> recipeList) {
         this.recipeList = recipeList;
     }
 
-    public ArrayList<StorageIngredient> GetStorageIngredientList() {
+    public ArrayList<StorageIngredient> getStorageIngredientList() {
         return this.storageIngredientList;
     }
 
-    public void SetStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
+    public void setStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
         this.storageIngredientList = storageIngredientList;
+    }
+
+    public ArrayList<Note> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(ArrayList<Note> noteList) {
+        this.noteList = noteList;
     }
 }

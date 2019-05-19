@@ -44,9 +44,9 @@ public class RecipeDetailPage extends JFrame {
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
                 brewData = new BrewData();
-                ArrayList<Recipe> recipeList = brewData.GetRecipeList();
+                ArrayList<Recipe> recipeList = brewData.getRecipeList();
                 recipeList.remove(recipe);
-                brewData.SetRecipeList(recipeList);
+                brewData.setRecipeList(recipeList);
             }
         });
 
