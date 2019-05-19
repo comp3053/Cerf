@@ -69,7 +69,7 @@ public class RecipeController {
 		return recommend;
 	}
 	
-	public boolean implment(Recipe r) {
+	public boolean implement(Recipe r) {
 		ArrayList<Recipe> available = this.recommend(1000);
 		ArrayList<StorageIngredient> newSi = new ArrayList<StorageIngredient>();
 		if(available.contains(r)) {
