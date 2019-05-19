@@ -7,28 +7,29 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainPage extends JFrame {
-	private Controller controller;
+    private Controller controller;
+
     // Constructor of MainPage
     public MainPage() {
         JFrame frame = new JFrame("Brew Day !");
-       
+
         Container container = getContentPane();
-        
+
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
-        titlePanel.setPreferredSize(new Dimension(600,100));
-        JLabel pageTitle = new JLabel("Brew Day !",SwingConstants.CENTER);
+        titlePanel.setPreferredSize(new Dimension(600, 100));
+        JLabel pageTitle = new JLabel("Brew Day !", SwingConstants.CENTER);
         titlePanel.add(pageTitle);
-        
+
         /* ---------- Content Panel ---------- */
-        JPanel buttonPanel = new JPanel(new GridLayout(10,1));
-        
+        JPanel buttonPanel = new JPanel(new GridLayout(10, 1));
+
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());
-        blankPanelL.setPreferredSize(new Dimension(150,100));
+        blankPanelL.setPreferredSize(new Dimension(150, 100));
         JPanel blankPanelR = new JPanel(new BorderLayout());
-        blankPanelR.setPreferredSize(new Dimension(150,100));
-        
+        blankPanelR.setPreferredSize(new Dimension(150, 100));
+
         /* ----- Button Recipe List ----- */
         JButton recipeBtn = new JButton("Recipe List");
         recipeBtn.addActionListener(e -> {
@@ -73,13 +74,13 @@ public class MainPage extends JFrame {
         buttonPanel.add(new JLabel());
 
         container.add(buttonPanel, BorderLayout.CENTER);
-        container.add(titlePanel,BorderLayout.NORTH);
-        container.add(blankPanelL,BorderLayout.WEST);
-        container.add(blankPanelR,BorderLayout.EAST);
+        container.add(titlePanel, BorderLayout.NORTH);
+        container.add(blankPanelL, BorderLayout.WEST);
+        container.add(blankPanelR, BorderLayout.EAST);
 
         frame.add(container);
         frame.setResizable(false);
-        frame.setSize(new Dimension(600,800));
+        frame.setSize(new Dimension(600, 800));
         frame.setLocation(150, 150);
         //frame.setAlwaysOnTop(true);
 

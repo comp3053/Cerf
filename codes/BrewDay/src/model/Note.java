@@ -15,12 +15,12 @@ public class Note {
         return this.content;
     }
 
-    public Date getDate() {
-        return this.date;
-    }
-
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getDate() {
+        return this.date;
     }
 
     public void setDate(Date date) {

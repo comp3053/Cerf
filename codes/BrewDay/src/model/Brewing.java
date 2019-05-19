@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Date;
-import java.util.Map;
 
 public class Brewing {
     private Date date;

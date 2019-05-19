@@ -1,10 +1,9 @@
 package controller;
 
+import model.Recipe;
 import view.*;
 
 import javax.swing.*;
-
-import model.Recipe;
 
 public class Controller {
     private static Controller instance = new Controller();
@@ -12,6 +11,10 @@ public class Controller {
 
     private Controller() {
         Init();
+    }
+
+    public static Controller GetInstance() {
+        return instance;
     }
 
     private void Init() {
@@ -42,23 +45,21 @@ public class Controller {
         NotePage notePage = new NotePage();
         frame.dispose();
     }
-    
-    public void getRecipeDetialPage(JFrame frame,Recipe recipe) {
-    	RecipeDetailPage recipeDetailPage = new RecipeDetailPage(recipe);
-    	frame.dispose();
-    }
-    
-    public void getNewRecipePage(JFrame frame) {
-    	NewRecipePage newRecipePage = new NewRecipePage();
-    	frame.dispose();
+
+    public void getRecipeDetialPage(JFrame frame, Recipe recipe) {
+        RecipeDetailPage recipeDetailPage = new RecipeDetailPage(recipe);
+        frame.dispose();
     }
 
-    public void getConfirmPage(JFrame frame, int situation) {
-    	ConfirmPage confirmPage = new ConfirmPage(situation);
-    	frame.dispose();
+    /*
+    public void getConfirmPage(JFrame frame, String situation) {
+        // ConfirmPage confirmPage = new ConfirmPage(situation);
+    	// frame.dispose();
     }
-    
-    public static Controller GetInstance() {
-        return instance;
+    */
+
+    public void getNewRecipePage(JFrame frame) {
+        NewRecipePage newRecipePage = new NewRecipePage();
+        frame.dispose();
     }
 }

@@ -31,7 +31,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
         /* ---------- motion Panel ---------- */
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
-        JButton addBtn = new JButton("ADD");
+        JButton addBtn = new JButton("Add");
         addBtn.setPreferredSize(new Dimension(100, 50));
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
