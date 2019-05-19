@@ -69,7 +69,6 @@ public class Cerf_BrewDay_CreateTable {
                     "VALUES (1,1,'Water',1500,'ml',1),(2,1,'Water',1600,'ml',2),(3,1,'Water',1400,'ml',3),(4,2,'Suger',50,'ml',1),(5,2,'Suger',70,'ml',2),(6,3,'Yeast',100,'ml',1),(7,3,'Yeast',80,'ml',2);";
             stmt.executeUpdate(sql);
 
-
             sql = "CREATE TABLE StorageIngredient(" +
                     "IngredientID INT NOT NULL ," +
                     "IngredientName CHAR(50) ," +
@@ -79,7 +78,7 @@ public class Cerf_BrewDay_CreateTable {
             stmt.executeUpdate(sql);
 
             sql = "INSERT INTO StorageIngredient (IngredientID,IngredientName,Amount,Unit)" +
-                    "VALUES (1,'Water',6000,'ml'),(1,'Suger',4000,ml),(1,'Yeast',5000,ml);";
+                    "VALUES (1,'Water',6000,'ml'),(1,'Suger',4000,'ml'),(1,'Yeast',5000,'ml');";
             stmt.executeUpdate(sql);
 
             sql = "CREATE TABLE Brewing(" +

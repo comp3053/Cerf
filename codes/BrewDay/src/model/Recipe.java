@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Recipe {
     private String name;
     private ArrayList<RecipeIngredient> ingredientList;
-    private final double size;
+    private double size;
 
     Recipe(String name, double size) {
         this.name = name;
