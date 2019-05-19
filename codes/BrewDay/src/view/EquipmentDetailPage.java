@@ -1,26 +1,22 @@
 package view;
 
-import controller.Controller;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class NotePage extends JFrame {
-    private Controller controller;
+class EquipmentDetailPage extends JFrame {
+    private JTextPane equipPane;
+    private double equipAmount;
 
-    public NotePage() {
-        JFrame frame = new JFrame("Brew Day !");
+    EquipmentDetailPage() {
+        JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel("Notes:", SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel("Equipment Detail", SwingConstants.CENTER);
         titlePanel.add(pageTitle);
-
 
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());
@@ -31,13 +27,9 @@ public class NotePage extends JFrame {
         /* ---------- motion Panel ---------- */
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
-
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getMainPage(frame);
-        });
+        backBtn.addActionListener(e -> frame.dispose());
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -53,49 +45,40 @@ public class NotePage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+
 
         /* ---------- Content Panel ---------- */
-        JPanel notePanel = new JPanel(new BorderLayout());
-        notePanel.setPreferredSize(new Dimension(200, 600));
-        
-        JList<String> jList = new JList<>();
+        JPanel equipPanel = new JPanel(new BorderLayout());
+        equipPanel.setPreferredSize(new Dimension(200, 600));
+        //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        DefaultListModel<String> listModel = new DefaultListModel<>();
+        equipPane = new JTextPane();
+        //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
 
-        listModel.addElement("dddd");
+        equipPane.setEditable(false);
 
-        jList.setModel(listModel);
+        JScrollPane listScrollPane = new JScrollPane(equipPane);
+        equipPanel.add(listScrollPane, BorderLayout.CENTER);
 
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        jList.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    String noteContent = jList.getSelectedValue();
-                    NoteDetailPage noteDetailPage = new NoteDetailPage();
-                    noteDetailPage.setNoteContent(noteContent);
-                }
-            }
-        });
-
-        JScrollPane listScrollPane = new JScrollPane(jList);
-        notePanel.add(listScrollPane, BorderLayout.CENTER);
-
-        container.add(notePanel, BorderLayout.CENTER);
+        container.add(equipPanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
         container.add(blankPanelL, BorderLayout.WEST);
         container.add(motionPanel, BorderLayout.SOUTH);
 
         frame.add(container);
-        frame.setResizable(false);
-        frame.setSize(new Dimension(600, 800));
-        frame.setLocation(150, 150);
+        frame.setResizable(false);                    //Forbid window resize (maximize)
+        frame.setSize(new Dimension(600, 800));        //set window size
+        frame.setLocation(150, 150);                //set location
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         frame.setVisible(true);
+    }
+
+    void setEquipName(String equipName) {
+        equipPane.setText(equipName);
     }
 }

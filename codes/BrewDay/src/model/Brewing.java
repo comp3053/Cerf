@@ -9,10 +9,10 @@ public class Brewing {
     private Note note;
     private Recipe recipe;
 
-    public Brewing(double batchSize, Recipe recipe) {
-        this.date = new Date();
+    public Brewing(double batchSize, Recipe recipe, Date date) {
+        this.date = date;
         this.batchSize = batchSize;
-        this.note = new Note("");
+        this.note = new Note("", date);
         this.recipe = recipe;
     }
 
@@ -29,7 +29,6 @@ public class Brewing {
     }
 
     public void implement() {
-//        Map<String, Double> converedIngredientList = recipe.convertValue(batchSize);
 
     }
 }

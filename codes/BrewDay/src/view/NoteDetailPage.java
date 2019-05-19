@@ -1,17 +1,14 @@
 package view;
 
-import controller.Controller;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class NotePage extends JFrame {
-    private Controller controller;
+class NoteDetailPage extends JFrame {
+    private JTextPane notePane;
+    //private Date noteDate;
 
-    public NotePage() {
-        JFrame frame = new JFrame("Brew Day !");
+    NoteDetailPage() {
+        JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
@@ -34,10 +31,7 @@ public class NotePage extends JFrame {
 
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getMainPage(frame);
-        });
+        backBtn.addActionListener(e -> frame.dispose());
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -57,29 +51,14 @@ public class NotePage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel notePanel = new JPanel(new BorderLayout());
         notePanel.setPreferredSize(new Dimension(200, 600));
-        
-        JList<String> jList = new JList<>();
+        //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        listModel.addElement("dddd");
+        notePane = new JTextPane();
+        //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        notePane.setEditable(false);
 
-        jList.setModel(listModel);
-
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        jList.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    String noteContent = jList.getSelectedValue();
-                    NoteDetailPage noteDetailPage = new NoteDetailPage();
-                    noteDetailPage.setNoteContent(noteContent);
-                }
-            }
-        });
-
-        JScrollPane listScrollPane = new JScrollPane(jList);
+        JScrollPane listScrollPane = new JScrollPane(notePane);
         notePanel.add(listScrollPane, BorderLayout.CENTER);
 
         container.add(notePanel, BorderLayout.CENTER);
@@ -98,4 +77,14 @@ public class NotePage extends JFrame {
 
         frame.setVisible(true);
     }
+
+    void setNoteContent(String noteContent) {
+        notePane.setText(noteContent);
+    }
+
+    /*
+    public void setNoteDate(Date noteDate) {
+        this.noteDate = noteDate;
+    }
+    */
 }
