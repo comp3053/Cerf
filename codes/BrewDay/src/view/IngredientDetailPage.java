@@ -1,17 +1,19 @@
 package view;
 
+
+import controller.Controller;
 import model.BrewData;
-import model.Equipment;
+import model.Ingredient;
+import model.RecipeIngredient;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-class EquipmentDetailPage extends JFrame {
-    private JTextPane equipPane;
-    private double equipAmount;
+public class IngredientDetailPage extends JFrame {
+    private Controller controller;
 
-    EquipmentDetailPage(Equipment equipment) {
+    public IngredientDetailPage(Ingredient ingredient) {
         JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
@@ -19,7 +21,7 @@ class EquipmentDetailPage extends JFrame {
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600, 100));
-        JLabel pageTitle = new JLabel("Equipment Detail", SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel(recipe.GetRecipeName(), SwingConstants.CENTER);
         titlePanel.add(pageTitle);
 
         /* ---------- blank Panel ---------- */
@@ -29,35 +31,50 @@ class EquipmentDetailPage extends JFrame {
         blankPanelR.setPreferredSize(new Dimension(100, 100));
 
         /* ---------- motion Panel ---------- */
-        JPanel motionPanel = new JPanel(new GridLayout(3, 5));
+        JPanel motionPanel = new JPanel(new GridLayout(3, 7));
         motionPanel.setPreferredSize(new Dimension(100, 100));
 
-        JButton deleteBtn = new JButton("Delete");
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setPreferredSize(new Dimension(100, 50));
+
+        JButton deleteBtn = new JButton("DELETE");
         deleteBtn.setPreferredSize(new Dimension(100, 50));
         deleteBtn.addActionListener(e -> {
             int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == JOptionPane.YES_OPTION) {
                 BrewData brewData = new BrewData();
-                ArrayList<Equipment> equipmentList = brewData.getEquipmentList();
-                equipmentList.remove(equipment);
-                brewData.setEquipmentList(equipmentList);
+                ArrayList<Ingredient> ingredientList = brewData.get();
+                ingredientList.remove(ingredient);
+                brewData.see(ingredientList);
             }
         });
 
+        JButton useBtn = new JButton("USE");
+        useBtn.setPreferredSize(new Dimension(100, 50));
+
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> frame.dispose());
+        backBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.getRecipeListPage(frame);
+        });
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+
+        motionPanel.add(saveBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(deleteBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(backBtn);
+
+        motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -67,19 +84,27 @@ class EquipmentDetailPage extends JFrame {
 
 
         /* ---------- Content Panel ---------- */
-        JPanel equipPanel = new JPanel(new BorderLayout());
-        equipPanel.setPreferredSize(new Dimension(200, 600));
-        //ingredientPanel.setBackground(java.awt.Color.blue);
+        JPanel recipePanel = new JPanel(new FlowLayout());
+        recipePanel.setPreferredSize(new Dimension(200, 600));
 
-        equipPane = new JTextPane();
-        //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        brewData = new BrewData();
 
-        equipPane.setEditable(false);
+        JList<String> jList = new JList<>();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        JScrollPane listScrollPane = new JScrollPane(equipPane);
-        equipPanel.add(listScrollPane, BorderLayout.CENTER);
+        for (RecipeIngredient ri : recipe.GetIngredientList()) {
+            String ingredient = ri.GetName() + "    " + ri.GetAmount() + ri.GetUnit();
+            listModel.addElement(ingredient);
+        }
 
-        container.add(equipPanel, BorderLayout.CENTER);
+        jList.setModel(listModel);
+
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane listScrollPane = new JScrollPane(jList);
+        recipePanel.add(listScrollPane, BorderLayout.CENTER);
+
+        container.add(recipePanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);
         container.add(blankPanelL, BorderLayout.WEST);

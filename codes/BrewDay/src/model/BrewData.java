@@ -6,6 +6,7 @@ public class BrewData {
     private ArrayList<Recipe> recipeList;
     private ArrayList<StorageIngredient> storageIngredientList;
     private ArrayList<Note> noteList;
+    private ArrayList<Equipment> equipmentList;
 
     public BrewData() {
         init();
@@ -42,5 +43,13 @@ public class BrewData {
 
     public void setNoteList(ArrayList<Note> noteList) {
         this.noteList = noteList;
+    }
+
+    public ArrayList<Equipment> getEquipmentList() {
+        return equipmentList;
+    }
+
+    public void setEquipmentList(ArrayList<Equipment> equipmentList) {
+        this.equipmentList = equipmentList;
     }
 }

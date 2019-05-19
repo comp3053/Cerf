@@ -75,9 +75,7 @@ public class IngredientListPage extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    String noteContent = jList.getSelectedValue();
-                    NoteDetailPage noteDetailPage = new NoteDetailPage();
-                    noteDetailPage.setNoteContent(noteContent);
+                    // TODO
                 }
             }
         });
@@ -92,9 +90,9 @@ public class IngredientListPage extends JFrame {
         container.add(motionPanel, BorderLayout.SOUTH);
 
         frame.add(container);
-        frame.setResizable(false);                    //Forbid window resize (maximize)
-        frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
+        frame.setResizable(false);
+        frame.setSize(new Dimension(600, 800));
+        frame.setLocation(150, 150);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

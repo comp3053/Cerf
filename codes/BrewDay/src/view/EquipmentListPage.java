@@ -1,11 +1,14 @@
 package view;
 
 import controller.Controller;
+import model.BrewData;
+import model.Equipment;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class EquipmentListPage extends JFrame implements ActionListener {
     private Controller controller;
@@ -112,8 +115,14 @@ public class EquipmentListPage extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        EquipmentDetailPage equipmentDetailPage = new EquipmentDetailPage();
-        equipmentDetailPage.setEquipName(e.getActionCommand());
+        //equipmentDetailPage.setEquipName(e.getActionCommand());
         // frame.dispose();
+        BrewData brewData = new BrewData();
+        ArrayList<Equipment> equipmentList = brewData.getEquipmentList();
+        for (Equipment equipment : equipmentList) {
+            if (equipment.GetName().equals(e.getActionCommand())) {
+                new EquipmentDetailPage(equipment);
+            }
+        }
     }
 }
