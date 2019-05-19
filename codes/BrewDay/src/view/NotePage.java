@@ -57,8 +57,7 @@ public class NotePage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel notePanel = new JPanel(new BorderLayout());
         notePanel.setPreferredSize(new Dimension(200, 600));
-        //ingredientPanel.setBackground(java.awt.Color.blue);
-
+        
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
