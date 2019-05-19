@@ -1,8 +1,8 @@
 package model;
 
 public class StorageIngredient extends Ingredient {
-    StorageIngredient(String name, double amount) {
-        super(name, amount);
+    StorageIngredient(String name, double amount, String unit) {
+        super(name, amount, unit);
     }
 
     public void AddAmount(double amount) {

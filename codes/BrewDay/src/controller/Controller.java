@@ -4,6 +4,8 @@ import view.*;
 
 import javax.swing.*;
 
+import model.Recipe;
+
 public class Controller {
     private static Controller instance = new Controller();
     private MainPage mainPage;
@@ -39,6 +41,11 @@ public class Controller {
     public void getNotePage(JFrame frame) {
         NotePage notePage = new NotePage();
         frame.dispose();
+    }
+    
+    public void getRecipeDetialPage(JFrame frame,Recipe recipe) {
+    	RecipeDetailPage recipeDetailPage = new RecipeDetailPage(recipe);
+    	frame.dispose();
     }
 
     public static Controller GetInstance() {

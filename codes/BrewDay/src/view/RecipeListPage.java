@@ -2,12 +2,17 @@ package view;
 
 
 import controller.Controller;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class RecipeListPage extends JFrame{
 	private Controller controller;
+	private BrewData brewData;
+	private Recipe recipe;
+	
 	public RecipeListPage() {
         JFrame frame = new JFrame("Brew Day !");
         
@@ -57,57 +62,26 @@ public class RecipeListPage extends JFrame{
         /* ---------- Content Panel ---------- */
         JPanel recipePanel = new JPanel(new FlowLayout());
         recipePanel.setPreferredSize(new Dimension(200,600));
-        //recipePanel.setBackground(java.awt.Color.blue);
         JScrollPane scrollPane = new JScrollPane(recipePanel);
         
-        /* ----- Button Recipe 1 (test) ----- */
-        JButton recipeBtn1 = new JButton("Recipe 1");
-        recipeBtn1.setPreferredSize(new Dimension(300,50));
-        recipeBtn1.setEnabled(true);
+        brewData = new BrewData();
         
-        /* ----- Button Recipe 2 (test) ----- */
-        JButton recipeBtn2 = new JButton("Recipe 2");
-        recipeBtn2.setPreferredSize(new Dimension(300,50));
-        recipeBtn2.setEnabled(true);
-
-        /* ----- Button Recipe 3 (test) ----- */
-        JButton recipeBtn3 = new JButton("Recipe 3");
-        recipeBtn3.setPreferredSize(new Dimension(300,50));
-        recipeBtn3.setEnabled(true);
+        ArrayList<Recipe> recipeList = brewData.GetRecipeList();
         
-        /* ----- Button Recipe 4 (test) ----- */
-        JButton recipeBtn4 = new JButton("Recipe 4");
-        recipeBtn4.setPreferredSize(new Dimension(300,50));
-        recipeBtn4.setEnabled(true);
+        JButton[] btnArray = new JButton[recipeList.size()];
         
-        /* ----- Button Recipe 5 (test) ----- */
-        JButton recipeBtn5 = new JButton("Recipe 5");
-        recipeBtn5.setPreferredSize(new Dimension(300,50));
-        recipeBtn5.setEnabled(true);
-        
-        /* ----- Button Recipe 6 (test) ----- */
-        JButton recipeBtn6 = new JButton("Recipe 6");
-        recipeBtn6.setPreferredSize(new Dimension(300,50));
-        recipeBtn6.setEnabled(true);
-
-        /* ----- Button Recipe 7 (test) ----- */
-        JButton recipeBtn7 = new JButton("Recipe 7");
-        recipeBtn7.setPreferredSize(new Dimension(300,50));
-        recipeBtn7.setEnabled(true);
-        
-        /* ----- Button Recipe 8 (test) ----- */
-        JButton recipeBtn8 = new JButton("Recipe 8");
-        recipeBtn8.setPreferredSize(new Dimension(300,50));
-        recipeBtn8.setEnabled(true);
-        
-        recipePanel.add(recipeBtn1);
-        recipePanel.add(recipeBtn2);
-        recipePanel.add(recipeBtn3);
-        recipePanel.add(recipeBtn4);
-        recipePanel.add(recipeBtn5);
-        recipePanel.add(recipeBtn6);
-        recipePanel.add(recipeBtn7);
-        recipePanel.add(recipeBtn8);
+        for(int i=0;i<recipeList.size();i++) {
+        	recipe = recipeList.get(i);
+        	btnArray[i] = new JButton(recipe.GetRecipeName());
+        	btnArray[i].setPreferredSize(new Dimension(300,50));
+        	
+        	btnArray[i].addActionListener(e -> {
+                controller = Controller.GetInstance();
+                controller.getRecipeDetialPage(frame, recipe);
+            });
+        	
+        	recipePanel.add(btnArray[i]);
+        }
 
         
         container.add(scrollPane, BorderLayout.CENTER);

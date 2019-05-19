@@ -2,16 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
-public class Data {
+public class BrewData {
 	private ArrayList<Recipe> recipeList;
 	private ArrayList<StorageIngredient> storageIngredientList;
 	
-	public Data() {
+	public BrewData() {
 		init();
 	}
 	
 	public void init() {
+		recipeList = new ArrayList<Recipe>();
+		storageIngredientList = new ArrayList<StorageIngredient>();
 		
+		Recipe beer = new Recipe("Beer",1000);
+		beer.AddIngredient(new RecipeIngredient("Water",500,"ml"));
+		recipeList.add(beer);
 	}
 	
 	public ArrayList<Recipe> GetRecipeList(){

@@ -1,27 +1,27 @@
 package model;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
 
 public class Recipe {
     private String name;
-    private Map<String, Double> ingredientList = new TreeMap<>();
+    private ArrayList<RecipeIngredient> ingredientList;
     private double size;
 
     Recipe(String name, double size) {
         this.name = name;
         this.size = size;
+        ingredientList = new ArrayList<RecipeIngredient>();
     }
 
     void AddIngredient(RecipeIngredient ri) {
-        ingredientList.put(ri.GetName(), ri.GetAmount());
+        ingredientList.add(ri);
     }
 
     public String GetRecipeName() {
         return this.name;
     }
 
-    public Map<String, Double> GetIngredientList() {
+    public ArrayList<RecipeIngredient> GetIngredientList() {
         return this.ingredientList;
     }
 
@@ -33,17 +33,17 @@ public class Recipe {
         this.name = name;
     }
 
-    public void SetIngredientAmount(String name, double amount) {
+    public void SetIngredientAmount(String name, double amount, String unit) {
         ingredientList.remove(name);
-        RecipeIngredient ri = new RecipeIngredient(name, amount);
-        ingredientList.put(ri.GetName(), ri.GetAmount());
+        RecipeIngredient ri = new RecipeIngredient(name, amount, unit);
+        ingredientList.add(ri);
     }
 
-    Map<String, Double> convertValue(double batchSize) {
-        Map<String, Double> convertedIngredientList = new TreeMap<>();
-        for (String key : ingredientList.keySet()) {
-            convertedIngredientList.put(key, ingredientList.get(key) / (this.size) * batchSize);
-        }
-        return convertedIngredientList;
-    }
+//    Map<String, Double> convertValue(double batchSize) {
+//        Map<String, Double> convertedIngredientList = new TreeMap<>();
+//        for (String key : ingredientList.keySet()) {
+//            convertedIngredientList.put(key, ingredientList.get(key) / (this.size) * batchSize);
+//        }
+//        return convertedIngredientList;
+//    }
 }

@@ -5,22 +5,28 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.Map;
+import java.util.Map.Entry;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.Controller;
 import model.*;
 
-public class RecipeDetialPage extends JFrame{
+public class RecipeDetailPage extends JFrame{
 	private Controller controller;
+	private BrewData brewData;
 	
-	public RecipeDetialPage(Recipe recipe) {
+	public RecipeDetailPage(Recipe recipe) {
         JFrame frame = new JFrame("Brew Day !");
         
         Container container = getContentPane();
@@ -69,60 +75,25 @@ public class RecipeDetialPage extends JFrame{
         /* ---------- Content Panel ---------- */
         JPanel recipePanel = new JPanel(new FlowLayout());
         recipePanel.setPreferredSize(new Dimension(200,600));
-        //recipePanel.setBackground(java.awt.Color.blue);
-        JScrollPane scrollPane = new JScrollPane(recipePanel);
         
-        /* ----- Button Recipe 1 (test) ----- */
-        JButton recipeBtn1 = new JButton("Recipe 1");
-        recipeBtn1.setPreferredSize(new Dimension(300,50));
-        recipeBtn1.setEnabled(true);
+        brewData = new BrewData();
         
-        /* ----- Button Recipe 2 (test) ----- */
-        JButton recipeBtn2 = new JButton("Recipe 2");
-        recipeBtn2.setPreferredSize(new Dimension(300,50));
-        recipeBtn2.setEnabled(true);
+        JList<String> jList = new JList<>();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        /* ----- Button Recipe 3 (test) ----- */
-        JButton recipeBtn3 = new JButton("Recipe 3");
-        recipeBtn3.setPreferredSize(new Dimension(300,50));
-        recipeBtn3.setEnabled(true);
-        
-        /* ----- Button Recipe 4 (test) ----- */
-        JButton recipeBtn4 = new JButton("Recipe 4");
-        recipeBtn4.setPreferredSize(new Dimension(300,50));
-        recipeBtn4.setEnabled(true);
-        
-        /* ----- Button Recipe 5 (test) ----- */
-        JButton recipeBtn5 = new JButton("Recipe 5");
-        recipeBtn5.setPreferredSize(new Dimension(300,50));
-        recipeBtn5.setEnabled(true);
-        
-        /* ----- Button Recipe 6 (test) ----- */
-        JButton recipeBtn6 = new JButton("Recipe 6");
-        recipeBtn6.setPreferredSize(new Dimension(300,50));
-        recipeBtn6.setEnabled(true);
+        for(RecipeIngredient ri : recipe.GetIngredientList()) {
+        	String ingredient = ri.GetName() + "    " + ri.GetAmount() + ri.GetUnit();
+        	listModel.addElement(ingredient);
+        }
 
-        /* ----- Button Recipe 7 (test) ----- */
-        JButton recipeBtn7 = new JButton("Recipe 7");
-        recipeBtn7.setPreferredSize(new Dimension(300,50));
-        recipeBtn7.setEnabled(true);
-        
-        /* ----- Button Recipe 8 (test) ----- */
-        JButton recipeBtn8 = new JButton("Recipe 8");
-        recipeBtn8.setPreferredSize(new Dimension(300,50));
-        recipeBtn8.setEnabled(true);
-        
-        recipePanel.add(recipeBtn1);
-        recipePanel.add(recipeBtn2);
-        recipePanel.add(recipeBtn3);
-        recipePanel.add(recipeBtn4);
-        recipePanel.add(recipeBtn5);
-        recipePanel.add(recipeBtn6);
-        recipePanel.add(recipeBtn7);
-        recipePanel.add(recipeBtn8);
+        jList.setModel(listModel);
 
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane listScrollPane = new JScrollPane(jList);
+        recipePanel.add(listScrollPane, BorderLayout.CENTER);
         
-        container.add(scrollPane, BorderLayout.CENTER);
+        container.add(recipePanel, BorderLayout.CENTER);
         container.add(titlePanel,BorderLayout.NORTH);
         container.add(blankPanelR,BorderLayout.EAST);
         container.add(blankPanelL,BorderLayout.WEST);

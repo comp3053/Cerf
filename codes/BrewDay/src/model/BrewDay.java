@@ -4,7 +4,7 @@ import controller.*;
 
 public class BrewDay {
 	private Controller controller;
-	
+
 	private BrewDay() {
 		init();
 	}
