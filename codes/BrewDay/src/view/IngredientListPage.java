@@ -1,21 +1,10 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
 
 import controller.Controller;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class IngredientListPage extends JFrame {
 	private Controller controller;
@@ -23,7 +12,6 @@ public class IngredientListPage extends JFrame {
         JFrame frame = new JFrame("Brew Day !");
         
         Container container = getContentPane();
-        
         
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
@@ -45,12 +33,10 @@ public class IngredientListPage extends JFrame {
         addBtn.setPreferredSize(new Dimension(100,50));
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100,50));
-        backBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        backBtn.addActionListener(e -> {
         		controller = Controller.GetInstance();
         		controller.ToMainPage(frame);
-        	}
-        });
+        	});
         
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -67,7 +53,6 @@ public class IngredientListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        
         
         /* ---------- Content Panel ---------- */
         JPanel ingredientPanel = new JPanel(new FlowLayout());
@@ -95,14 +80,11 @@ public class IngredientListPage extends JFrame {
         ingredientBtn4.setPreferredSize(new Dimension(300,50));
         ingredientBtn4.setEnabled(true);
         
-        
         ingredientPanel.add(ingredientBtn1);
         ingredientPanel.add(ingredientBtn2);
         ingredientPanel.add(ingredientBtn3);
         ingredientPanel.add(ingredientBtn4);
 
-
-        
         container.add(scrollPane, BorderLayout.CENTER);
         container.add(titlePanel,BorderLayout.NORTH);
         container.add(blankPanelR,BorderLayout.EAST);

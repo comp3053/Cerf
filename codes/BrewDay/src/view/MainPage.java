@@ -1,12 +1,10 @@
 package view;
 
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import controller.*;
 
 public class MainPage extends JFrame {
 	private Controller controller;
@@ -15,7 +13,6 @@ public class MainPage extends JFrame {
         JFrame frame = new JFrame("Brew Day !");
        
         Container container = getContentPane();
-        
         
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
@@ -34,31 +31,25 @@ public class MainPage extends JFrame {
         
         /* ----- Button Recipe List ----- */
         JButton recipeBtn = new JButton("Recipe List");
-        recipeBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		controller = Controller.GetInstance();
-        		controller.ToRecipeListPage(frame);
-        	}
+        recipeBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.ToRecipeListPage(frame);
         });
         recipeBtn.setEnabled(true);
 
         /* ----- Button Ingredient List ----- */
         JButton ingredientBtn = new JButton("Ingredient List");
-        ingredientBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		controller = Controller.GetInstance();
-        		controller.ToIngredientListPage(frame);
-        	}
+        ingredientBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.ToIngredientListPage(frame);
         });
         ingredientBtn.setEnabled(true);
 
         /* ----- Button Equipment List ----- */
         JButton equipmentBtn = new JButton("Equipment List");
-        equipmentBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		controller = Controller.GetInstance();
-        		controller.ToEquipmentListPage(frame);
-        	}
+        equipmentBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.ToEquipmentListPage(frame);
         });
         equipmentBtn.setEnabled(true);
 
@@ -76,20 +67,16 @@ public class MainPage extends JFrame {
         buttonPanel.add(noteBtn);
         buttonPanel.add(new JLabel());
         buttonPanel.add(new JLabel());
-        
-        
-        
+
         container.add(buttonPanel, BorderLayout.CENTER);
         container.add(titlePanel,BorderLayout.NORTH);
         container.add(blankPanelL,BorderLayout.WEST);
         container.add(blankPanelR,BorderLayout.EAST);
 
-        
-        
         frame.add(container);
-        frame.setResizable(false);					//Forbid window resize (maximize)
-        frame.setSize(new Dimension(600,800));		//set window size
-        frame.setLocation(150, 150);				//set location
+        frame.setResizable(false);
+        frame.setSize(new Dimension(600,800));
+        frame.setLocation(150, 150);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);

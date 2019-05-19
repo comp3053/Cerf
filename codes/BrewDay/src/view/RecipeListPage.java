@@ -1,21 +1,10 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
 
 import controller.Controller;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class RecipeListPage extends JFrame{
 	private Controller controller;
@@ -24,13 +13,11 @@ public class RecipeListPage extends JFrame{
         
         Container container = getContentPane();
         
-        
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600,100));
         JLabel pageTitle = new JLabel("Recipe List",SwingConstants.CENTER);
         titlePanel.add(pageTitle);
-        
         
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());
@@ -45,12 +32,10 @@ public class RecipeListPage extends JFrame{
         addBtn.setPreferredSize(new Dimension(100,50));
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100,50));
-        backBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        backBtn.addActionListener(e -> {
         		controller = Controller.GetInstance();
         		controller.ToMainPage(frame);
-        	}
-        });
+        	});
         
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());

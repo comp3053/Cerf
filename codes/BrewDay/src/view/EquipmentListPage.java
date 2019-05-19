@@ -1,21 +1,11 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import controller.Controller;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
-
-import controller.Controller;
 
 public class EquipmentListPage extends JFrame{
 	private Controller controller;
@@ -23,14 +13,12 @@ public class EquipmentListPage extends JFrame{
         JFrame frame = new JFrame("Brew Day !");
         
         Container container = getContentPane();
-        
-        
+
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600,100));
         JLabel pageTitle = new JLabel("Equipment List",SwingConstants.CENTER);
         titlePanel.add(pageTitle);
-        
         
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());

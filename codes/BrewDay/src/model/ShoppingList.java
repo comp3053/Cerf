@@ -19,7 +19,6 @@ class ShoppingList {
                 recommendRecipeList.add(recipe);
         }
 
-
         return recommendRecipeList;
     }
 }
