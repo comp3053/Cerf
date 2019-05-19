@@ -95,7 +95,7 @@ public class RecipeDetailPage extends JFrame {
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
         for (RecipeIngredient ri : recipe.GetIngredientList()) {
-            String ingredient = ri.GetName() + "    " + ri.GetAmount() + ri.GetUnit();
+            String ingredient = ri.getName() + "    " + ri.GetAmount() + ri.GetUnit();
             listModel.addElement(ingredient);
         }
 
