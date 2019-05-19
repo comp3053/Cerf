@@ -17,6 +17,10 @@ public class BrewData {
 		Recipe beer = new Recipe("Beer",1000);
 		beer.AddIngredient(new RecipeIngredient("Water",500,"ml"));
 		recipeList.add(beer);
+		
+		storageIngredientList.add(new StorageIngredient("Water", 5000, "ml"));
+		storageIngredientList.add(new StorageIngredient("Suger", 5000, "ml"));
+		storageIngredientList.add(new StorageIngredient("Yeast", 5000, "ml"));
 	}
 	
 	public ArrayList<Recipe> GetRecipeList(){

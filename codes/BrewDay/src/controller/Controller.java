@@ -5,6 +5,7 @@ import view.*;
 import javax.swing.*;
 
 import model.Recipe;
+import model.StorageIngredient;
 
 public class Controller {
     private static Controller instance = new Controller();
@@ -58,6 +59,15 @@ public class Controller {
     	frame.dispose();
     }
     
+    public void getAddIngredientsPage(JFrame frame) {
+    	AddIngredientsPage addIngredientPage = new AddIngredientsPage();
+    	frame.dispose();
+    }
+    
+    public void getEditIngredientsPage(JFrame frame, StorageIngredient si) {
+    	EditIngredientsPage editIngredientPage = new EditIngredientsPage(si);
+    	frame.dispose();
+    }
     public static Controller GetInstance() {
         return instance;
     }

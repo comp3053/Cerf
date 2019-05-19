@@ -1,21 +1,29 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import controller.Controller;
 import model.BrewData;
-import model.RecipeIngredient;
 import model.StorageIngredient;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-public class IngredientListPage extends JFrame {
+public class EditIngredientsPage extends JFrame {
 	private Controller controller;
 	private BrewData brewData;
 	
-	public IngredientListPage() {
+	public EditIngredientsPage(StorageIngredient si) {
         JFrame frame = new JFrame("Brew Day !");
         
         Container container = getContentPane();
@@ -23,9 +31,8 @@ public class IngredientListPage extends JFrame {
         /* ---------- Title Panel ---------- */
         JPanel titlePanel = new JPanel(new BorderLayout());
         titlePanel.setPreferredSize(new Dimension(600,100));
-        JLabel pageTitle = new JLabel("Ingredient List",SwingConstants.CENTER);
+        JLabel pageTitle = new JLabel("Edit Ingredients",SwingConstants.CENTER);
         titlePanel.add(pageTitle);
-        
         
         /* ---------- blank Panel ---------- */
         JPanel blankPanelL = new JPanel(new BorderLayout());
@@ -36,17 +43,17 @@ public class IngredientListPage extends JFrame {
         /* ---------- motion Panel ---------- */
         JPanel motionPanel = new JPanel(new GridLayout(3,5));
         motionPanel.setPreferredSize(new Dimension(100,100));
-        JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100,50));
-        addBtn.addActionListener(e -> {
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setPreferredSize(new Dimension(100,50));
+        saveBtn.addActionListener(e -> {
     		controller = Controller.GetInstance();
-    		controller.getAddIngredientsPage(frame);
+    		controller.getRecipeListPage(frame);
     	});
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100,50));
         backBtn.addActionListener(e -> {
         		controller = Controller.GetInstance();
-        		controller.getMainPage(frame);
+        		controller.getRecipeListPage(frame);
         	});
         
         motionPanel.add(new JLabel());
@@ -55,7 +62,7 @@ public class IngredientListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        motionPanel.add(addBtn);
+        motionPanel.add(saveBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(backBtn);
         motionPanel.add(new JLabel());
@@ -65,42 +72,39 @@ public class IngredientListPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         
-        /* ---------- Content Panel ---------- */
-        JPanel ingredientPanel = new JPanel(new BorderLayout());
-        ingredientPanel.setPreferredSize(new Dimension(200, 600));
         
-        JList<String> jList = new JList<>();
-
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-
+        /* ---------- Content Panel ---------- */
+        JPanel ingredientPanel = new JPanel(new FlowLayout());
+        ingredientPanel.setPreferredSize(new Dimension(300,600));
+        
         brewData = new BrewData();
         
-        for(StorageIngredient si : brewData.GetStorageIngredientList()) {
-        	String ingredient = si.GetName() + "    " + si.GetAmount() + si.GetUnit();
-        	listModel.addElement(ingredient);
-        }
-
-        jList.setModel(listModel);
-
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        jList.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    if (e.getClickCount() == 2) {
-                        int index = jList.getSelectedIndex();
-                        StorageIngredient si = brewData.GetStorageIngredientList().get(index);
-                        controller = Controller.GetInstance();
-                        controller.getEditIngredientsPage(frame,si);
-                    }
-                }
-            }
-        });
-
-        JScrollPane listScrollPane = new JScrollPane(jList);
-        ingredientPanel.add(listScrollPane, BorderLayout.CENTER);
-
+        JPanel namePane = new JPanel();
+        namePane.setPreferredSize(new Dimension(200,100));
+        JLabel name = new JLabel("Ingredient Name :");
+        JTextPane nameBox = new JTextPane();
+        nameBox.setText(si.GetName());
+        nameBox.setEditable(false);
+        nameBox.setPreferredSize(new Dimension(100,20));
+        namePane.add(name);
+        namePane.add(nameBox);
+        
+        JPanel amountPane = new JPanel();
+        amountPane.setPreferredSize(new Dimension(300,100));
+        JLabel amount = new JLabel("Amount :");
+        JTextPane amountBox = new JTextPane();
+        amountBox.setPreferredSize(new Dimension(100,20));
+        JLabel unit = new JLabel();
+        unit.setText(si.GetUnit());
+        
+        amountPane.add(amount);
+        amountPane.add(amountBox);
+        amountPane.add(unit);
+        
+        ingredientPanel.add(namePane,BorderLayout.CENTER);
+        ingredientPanel.add(amountPane,BorderLayout.CENTER);
+        
+        
         container.add(ingredientPanel, BorderLayout.CENTER);
         container.add(titlePanel,BorderLayout.NORTH);
         container.add(blankPanelR,BorderLayout.EAST);
