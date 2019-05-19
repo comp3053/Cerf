@@ -4,13 +4,13 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class NotePage extends JFrame {
+class ViewNotePage extends JFrame {
     private Controller controller;
+    private String noteContent;
+    //private Date noteDate;
 
-    public NotePage() {
+    ViewNotePage() {
         JFrame frame = new JFrame("Brew Day !");
 
         Container container = getContentPane();
@@ -35,8 +35,8 @@ public class NotePage extends JFrame {
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getMainPage(frame);
+            new NotePage();
+            frame.dispose();
         });
 
         motionPanel.add(new JLabel());
@@ -59,30 +59,12 @@ public class NotePage extends JFrame {
         notePanel.setPreferredSize(new Dimension(200, 600));
         //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        JList<String> jList = new JList<>();
+        JTextPane notePane = new JTextPane();
+        //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        notePane.setText(noteContent);
+        notePane.setEditable(false);
 
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-
-        listModel.addElement("dddd");
-
-        jList.setModel(listModel);
-
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        jList.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                JList listClick = (JList)e.getSource();
-                if (e.getClickCount() == 2) {
-                    String noteContent = (String) listClick.getSelectedValue();
-                    ViewNotePage viewNotePage = new ViewNotePage();
-                    viewNotePage.setNoteContent(noteContent);
-                    frame.dispose();
-                }
-            }
-        });
-
-        JScrollPane listScrollPane = new JScrollPane(jList);
+        JScrollPane listScrollPane = new JScrollPane(notePane);
         notePanel.add(listScrollPane, BorderLayout.CENTER);
 
         container.add(notePanel, BorderLayout.CENTER);
@@ -101,4 +83,14 @@ public class NotePage extends JFrame {
 
         frame.setVisible(true);
     }
+
+    void setNoteContent(String noteContent) {
+        this.noteContent = noteContent;
+    }
+
+    /*
+    public void setNoteDate(Date noteDate) {
+        this.noteDate = noteDate;
+    }
+    */
 }
