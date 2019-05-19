@@ -16,10 +16,12 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.Controller;
+import controller.IngredientController;
 import model.BrewData;
 
 public class AddIngredientsPage extends JFrame {
 	private Controller controller;
+	private IngredientController ingreController;
 	private BrewData brewData;
 	
 	public AddIngredientsPage() {
@@ -38,38 +40,6 @@ public class AddIngredientsPage extends JFrame {
         blankPanelL.setPreferredSize(new Dimension(100,100));
         JPanel blankPanelR = new JPanel(new BorderLayout());
         blankPanelR.setPreferredSize(new Dimension(100,100));
-        
-        /* ---------- motion Panel ---------- */
-        JPanel motionPanel = new JPanel(new GridLayout(3,5));
-        motionPanel.setPreferredSize(new Dimension(100,100));
-        JButton saveBtn = new JButton("SAVE");
-        saveBtn.setPreferredSize(new Dimension(100,50));
-        saveBtn.addActionListener(e -> {
-    		controller = Controller.GetInstance();
-    		controller.getRecipeListPage(frame);
-    	});
-        JButton backBtn = new JButton("Back");
-        backBtn.setPreferredSize(new Dimension(100,50));
-        backBtn.addActionListener(e -> {
-        		controller = Controller.GetInstance();
-        		controller.getRecipeListPage(frame);
-        	});
-        
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(saveBtn);
-        motionPanel.add(new JLabel());
-        motionPanel.add(backBtn);
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
         
         
         /* ---------- Content Panel ---------- */
@@ -101,6 +71,45 @@ public class AddIngredientsPage extends JFrame {
         
         ingredientPanel.add(namePane,BorderLayout.CENTER);
         ingredientPanel.add(amountPane,BorderLayout.CENTER);
+        
+        
+        /* ---------- motion Panel ---------- */
+        JPanel motionPanel = new JPanel(new GridLayout(3,5));
+        motionPanel.setPreferredSize(new Dimension(100,100));
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setPreferredSize(new Dimension(100,50));
+        saveBtn.addActionListener(e -> {
+        	ingreController = IngredientController.GetInstance();
+        	String ingreName = nameBox.getText();
+        	double ingreAmount = Double.valueOf(amountBox.getText().toString());
+        	String ingreUnit = (String) unit.getSelectedItem();
+        	ingreController.addIngredient(ingreName,ingreAmount,ingreUnit);
+        	
+    		controller = Controller.GetInstance();
+    		controller.getRecipeListPage(frame);
+    	});
+        JButton backBtn = new JButton("Back");
+        backBtn.setPreferredSize(new Dimension(100,50));
+        backBtn.addActionListener(e -> {
+        		controller = Controller.GetInstance();
+        		controller.getRecipeListPage(frame);
+        	});
+        
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(saveBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(backBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
         
         
         container.add(ingredientPanel, BorderLayout.CENTER);
