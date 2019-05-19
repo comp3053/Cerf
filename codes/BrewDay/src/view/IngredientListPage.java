@@ -5,6 +5,8 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class IngredientListPage extends JFrame {
 	private Controller controller;
@@ -55,37 +57,34 @@ public class IngredientListPage extends JFrame {
         motionPanel.add(new JLabel());
         
         /* ---------- Content Panel ---------- */
-        JPanel ingredientPanel = new JPanel(new FlowLayout());
-        ingredientPanel.setPreferredSize(new Dimension(200,600));
-        //ingredientPanel.setBackground(java.awt.Color.blue);
-        JScrollPane scrollPane = new JScrollPane(ingredientPanel);
+        JPanel ingredientPanel = new JPanel(new BorderLayout());
+        ingredientPanel.setPreferredSize(new Dimension(200, 600));
         
-        /* ----- Button Ingredient 1 (test) ----- */
-        JButton ingredientBtn1 = new JButton("Ingredient 1");
-        ingredientBtn1.setPreferredSize(new Dimension(300,50));
-        ingredientBtn1.setEnabled(true);
-        
-        /* ----- Button Ingredient 2 (test) ----- */
-        JButton ingredientBtn2 = new JButton("Ingredient 2");
-        ingredientBtn2.setPreferredSize(new Dimension(300,50));
-        ingredientBtn2.setEnabled(true);
+        JList<String> jList = new JList<>();
 
-        /* ----- Button Ingredient 3 (test) ----- */
-        JButton ingredientBtn3 = new JButton("Ingredient 3");
-        ingredientBtn3.setPreferredSize(new Dimension(300,50));
-        ingredientBtn3.setEnabled(true);
-        
-        /* ----- Button Ingredient 4 (test) ----- */
-        JButton ingredientBtn4 = new JButton("Ingredient 4");
-        ingredientBtn4.setPreferredSize(new Dimension(300,50));
-        ingredientBtn4.setEnabled(true);
-        
-        ingredientPanel.add(ingredientBtn1);
-        ingredientPanel.add(ingredientBtn2);
-        ingredientPanel.add(ingredientBtn3);
-        ingredientPanel.add(ingredientBtn4);
+        DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        container.add(scrollPane, BorderLayout.CENTER);
+        listModel.addElement("dddd");
+
+        jList.setModel(listModel);
+
+        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        jList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    String noteContent = jList.getSelectedValue();
+                    NoteDetailPage noteDetailPage = new NoteDetailPage();
+                    noteDetailPage.setNoteContent(noteContent);
+                }
+            }
+        });
+
+        JScrollPane listScrollPane = new JScrollPane(jList);
+        ingredientPanel.add(listScrollPane, BorderLayout.CENTER);
+
+        container.add(ingredientPanel, BorderLayout.CENTER);
         container.add(titlePanel,BorderLayout.NORTH);
         container.add(blankPanelR,BorderLayout.EAST);
         container.add(blankPanelL,BorderLayout.WEST);

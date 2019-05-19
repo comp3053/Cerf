@@ -47,7 +47,17 @@ public class Controller {
     	RecipeDetailPage recipeDetailPage = new RecipeDetailPage(recipe);
     	frame.dispose();
     }
+    
+    public void getNewRecipePage(JFrame frame) {
+    	NewRecipePage newRecipePage = new NewRecipePage();
+    	frame.dispose();
+    }
 
+    public void getConfirmPage(JFrame frame, int situation) {
+    	ConfirmPage confirmPage = new ConfirmPage(situation);
+    	frame.dispose();
+    }
+    
     public static Controller GetInstance() {
         return instance;
     }

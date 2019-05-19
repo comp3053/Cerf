@@ -44,10 +44,22 @@ public class RecipeDetailPage extends JFrame{
         blankPanelR.setPreferredSize(new Dimension(100,100));
         
         /* ---------- motion Panel ---------- */
-        JPanel motionPanel = new JPanel(new GridLayout(3,5));
+        JPanel motionPanel = new JPanel(new GridLayout(3,7));
         motionPanel.setPreferredSize(new Dimension(100,100));
-        JButton addBtn = new JButton("ADD");
-        addBtn.setPreferredSize(new Dimension(100,50));
+                
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setPreferredSize(new Dimension(100,50));
+        
+        JButton deleteBtn = new JButton("DELETE");
+        deleteBtn.setPreferredSize(new Dimension(100,50));
+        deleteBtn.addActionListener(e -> {
+    		controller = Controller.GetInstance();
+    		controller.getConfirmPage(frame,1);
+    	});
+        
+        JButton useBtn = new JButton("USE");
+        useBtn.setPreferredSize(new Dimension(100,50));
+        
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100,50));
         backBtn.addActionListener(e -> {
@@ -61,9 +73,17 @@ public class RecipeDetailPage extends JFrame{
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        motionPanel.add(addBtn);
+        motionPanel.add(new JLabel());
+        
+        motionPanel.add(saveBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(deleteBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(useBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(backBtn);
+        
+        motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -74,7 +94,7 @@ public class RecipeDetailPage extends JFrame{
         
         /* ---------- Content Panel ---------- */
         JPanel recipePanel = new JPanel(new FlowLayout());
-        recipePanel.setPreferredSize(new Dimension(200,600));
+        recipePanel.setPreferredSize(new Dimension(200, 600));
         
         brewData = new BrewData();
         
