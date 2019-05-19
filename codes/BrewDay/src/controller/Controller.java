@@ -4,6 +4,7 @@ import view.*;
 
 import javax.swing.*;
 
+import model.Equipment;
 import model.Recipe;
 import model.StorageIngredient;
 
@@ -68,6 +69,17 @@ public class Controller {
     	EditIngredientsPage editIngredientPage = new EditIngredientsPage(si);
     	frame.dispose();
     }
+    
+    public void getAddEquipmentPage(JFrame frame) {
+    	AddEquipmentPage addEquipmentPage = new AddEquipmentPage();
+    	frame.dispose();
+    }
+    
+    public void getEditEquipmentPage(JFrame frame, Equipment equip) {
+    	EditEquipmentPage editEquipmentPage = new EditEquipmentPage(equip);
+    	frame.dispose();
+    }
+    
     public static Controller GetInstance() {
         return instance;
     }
