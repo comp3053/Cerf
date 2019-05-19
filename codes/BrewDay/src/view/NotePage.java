@@ -1,11 +1,14 @@
 package view;
 
 import controller.Controller;
+import model.BrewData;
+import model.Note;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class NotePage extends JFrame {
     private Controller controller;
@@ -57,7 +60,7 @@ public class NotePage extends JFrame {
         /* ---------- Content Panel ---------- */
         JPanel notePanel = new JPanel(new BorderLayout());
         notePanel.setPreferredSize(new Dimension(200, 600));
-        
+
         JList<String> jList = new JList<>();
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -73,8 +76,13 @@ public class NotePage extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
                     String noteContent = jList.getSelectedValue();
-                    NoteDetailPage noteDetailPage = new NoteDetailPage();
-                    noteDetailPage.setNoteContent(noteContent);
+                    BrewData brewData = new BrewData();
+                    ArrayList<Note> noteList = brewData.getNoteList();
+                    for (Note note : noteList) {
+                        if (note.getTitle().equals(noteContent)) {
+                            new NoteDetailPage(note);
+                        }
+                    }
                 }
             }
         });

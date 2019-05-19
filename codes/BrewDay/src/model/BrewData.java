@@ -3,9 +3,11 @@ package model;
 import java.util.ArrayList;
 
 public class BrewData {
+
 	private ArrayList<Recipe> recipeList;
 	private ArrayList<StorageIngredient> storageIngredientList;
 	private ArrayList<Equipment> equipmentList;
+	private ArrayList<Note> noteList;
 	
 	public BrewData() {
 		init();
@@ -50,4 +52,28 @@ public class BrewData {
 	public void SetEquipmentList(ArrayList<Equipment> equipmentList) {
 		this.equipmentList = equipmentList;
 	}
+
+    public ArrayList<Recipe> getRecipeList() {
+        return this.recipeList;
+    }
+
+    public void setRecipeList(ArrayList<Recipe> recipeList) {
+        this.recipeList = recipeList;
+    }
+
+    public ArrayList<StorageIngredient> getStorageIngredientList() {
+        return this.storageIngredientList;
+    }
+
+    public void setStorageIngredientList(ArrayList<StorageIngredient> storageIngredientList) {
+        this.storageIngredientList = storageIngredientList;
+    }
+
+    public ArrayList<Note> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(ArrayList<Note> noteList) {
+        this.noteList = noteList;
+    }
 }
