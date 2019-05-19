@@ -86,7 +86,7 @@ public class NotePage extends JFrame {
         frame.setLocation(150, 150);                //set location
         //frame.setAlwaysOnTop(true);
 
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         frame.setVisible(true);
     }
