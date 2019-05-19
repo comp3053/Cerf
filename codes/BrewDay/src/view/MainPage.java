@@ -33,7 +33,7 @@ public class MainPage extends JFrame {
         JButton recipeBtn = new JButton("Recipe List");
         recipeBtn.addActionListener(e -> {
             controller = Controller.GetInstance();
-            controller.ToRecipeListPage(frame);
+            controller.getRecipeListPage(frame);
         });
         recipeBtn.setEnabled(true);
 
@@ -41,7 +41,7 @@ public class MainPage extends JFrame {
         JButton ingredientBtn = new JButton("Ingredient List");
         ingredientBtn.addActionListener(e -> {
             controller = Controller.GetInstance();
-            controller.ToIngredientListPage(frame);
+            controller.getIngredientListPage(frame);
         });
         ingredientBtn.setEnabled(true);
 
@@ -49,12 +49,16 @@ public class MainPage extends JFrame {
         JButton equipmentBtn = new JButton("Equipment List");
         equipmentBtn.addActionListener(e -> {
             controller = Controller.GetInstance();
-            controller.ToEquipmentListPage(frame);
+            controller.getEquipmentListPage(frame);
         });
         equipmentBtn.setEnabled(true);
 
-        /* ----- Button Note ----- */
+        /* ----- Button NotePage ----- */
         JButton noteBtn = new JButton("Notes");
+        noteBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.getNotePage(frame);
+        });
         noteBtn.setEnabled(true);
 
         buttonPanel.add(new JLabel());

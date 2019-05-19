@@ -4,8 +4,6 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class EquipmentListPage extends JFrame{
 	private Controller controller;
@@ -33,12 +31,10 @@ public class EquipmentListPage extends JFrame{
         addBtn.setPreferredSize(new Dimension(100,50));
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100,50));
-        backBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        backBtn.addActionListener(e -> {
         		controller = Controller.GetInstance();
-        		controller.ToMainPage(frame);
-        	}
-        });
+        		controller.getMainPage(frame);
+        	});
         
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());

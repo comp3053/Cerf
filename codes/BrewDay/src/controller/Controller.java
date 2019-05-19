@@ -1,16 +1,12 @@
 package controller;
 
-import javax.swing.JFrame;
-
 import view.*;
-import model.*;
+
+import javax.swing.*;
 
 public class Controller {
     private static Controller instance = new Controller();
     private MainPage mainPage;
-    private RecipeListPage recipeListPage;
-    private IngredientListPage ingredientListPage;
-    private EquipmentListPage equipmentListPage;
 
     private Controller() {
         Init();
@@ -20,23 +16,28 @@ public class Controller {
         mainPage = new MainPage();
     }
 
-    public void ToMainPage(JFrame frame) {
+    public void getMainPage(JFrame frame) {
         mainPage = new MainPage();
         frame.dispose();
     }
 
-    public void ToRecipeListPage(JFrame frame) {
-        recipeListPage = new RecipeListPage();
+    public void getRecipeListPage(JFrame frame) {
+        RecipeListPage recipeListPage = new RecipeListPage();
         frame.dispose();
     }
 
-    public void ToIngredientListPage(JFrame frame) {
-        ingredientListPage = new IngredientListPage();
+    public void getIngredientListPage(JFrame frame) {
+        IngredientListPage ingredientListPage = new IngredientListPage();
         frame.dispose();
     }
 
-    public void ToEquipmentListPage(JFrame frame) {
-        equipmentListPage = new EquipmentListPage();
+    public void getEquipmentListPage(JFrame frame) {
+        EquipmentListPage equipmentListPage = new EquipmentListPage();
+        frame.dispose();
+    }
+
+    public void getNotePage(JFrame frame) {
+        NotePage notePage = new NotePage();
         frame.dispose();
     }
 

@@ -5,19 +5,19 @@ import controller.*;
 public class BrewDay {
 	private Controller controller;
 	
-	public BrewDay() {
+	private BrewDay() {
 		init();
 	}
 	
-	public void init() {
+	private void init() {
 		controller = Controller.GetInstance();
 	}
 	
 	public static void main(String[] arg) {
 		try {
-			BrewDay bd = new BrewDay();
+			new BrewDay();
 		}catch(Exception e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
     }
 }

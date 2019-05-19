@@ -35,7 +35,7 @@ public class IngredientListPage extends JFrame {
         backBtn.setPreferredSize(new Dimension(100,50));
         backBtn.addActionListener(e -> {
         		controller = Controller.GetInstance();
-        		controller.ToMainPage(frame);
+        		controller.getMainPage(frame);
         	});
         
         motionPanel.add(new JLabel());
