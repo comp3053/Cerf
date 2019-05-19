@@ -71,12 +71,10 @@ public class NotePage extends JFrame {
         jList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                JList listClick = (JList)e.getSource();
                 if (e.getClickCount() == 2) {
-                    String noteContent = (String) listClick.getSelectedValue();
+                    String noteContent = jList.getSelectedValue();
                     NoteDetailPage noteDetailPage = new NoteDetailPage();
                     noteDetailPage.setNoteContent(noteContent);
-                    frame.dispose();
                 }
             }
         });

@@ -18,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/EquipmentListPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="398">
               <caret line="114" column="59" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
             </state>
           </provider>
@@ -27,23 +27,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/EquipmentDetailPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="240">
+              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
               <folding>
-                <element signature="e#4131#4132#0" expanded="true" />
-                <element signature="e#4173#4174#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/NoteDetailPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3084#3085#0" expanded="true" />
+                <element signature="e#3126#3127#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,11 +105,12 @@
         <option value="$PROJECT_DIR$/src/view/MainPage.java" />
         <option value="$PROJECT_DIR$/src/view/RecipeListPage.java" />
         <option value="$PROJECT_DIR$/src/model/Note.java" />
-        <option value="$PROJECT_DIR$/src/view/NotePage.java" />
         <option value="$PROJECT_DIR$/src/view/ViewNotePage.java" />
         <option value="$PROJECT_DIR$/src/model/Brewing.java" />
         <option value="$PROJECT_DIR$/src/view/ViewEquipmentPage.java" />
         <option value="$PROJECT_DIR$/src/view/EquipmentListPage.java" />
+        <option value="$PROJECT_DIR$/src/view/NotePage.java" />
+        <option value="$PROJECT_DIR$/src/view/NoteDetailPage.java" />
         <option value="$PROJECT_DIR$/src/view/EquipmentDetailPage.java" />
       </list>
     </option>
@@ -246,12 +235,12 @@
       <workItem from="1558178963592" duration="8046000" />
       <workItem from="1558197777012" duration="66000" />
       <workItem from="1558233650709" duration="4845000" />
-      <workItem from="1558248756125" duration="5526000" />
+      <workItem from="1558248756125" duration="6187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21781000" />
+    <option name="totallyTimeSpent" value="22442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -283,6 +272,18 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/NotePage.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ShoppingList.java">
@@ -414,18 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/NotePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1872">
-          <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2430#2636#0" expanded="true" />
-            <element signature="e#2635#2636#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Brewing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -524,28 +513,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/NoteDetailPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+        <state relative-caret-position="168">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NotePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2376#2870#0" expanded="true" />
+            <element signature="e#2869#2870#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/EquipmentListPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="398">
           <caret line="114" column="59" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/EquipmentDetailPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        <state relative-caret-position="240">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
           <folding>
-            <element signature="e#4131#4132#0" expanded="true" />
-            <element signature="e#4173#4174#0" expanded="true" />
+            <element signature="e#3084#3085#0" expanded="true" />
+            <element signature="e#3126#3127#0" expanded="true" />
           </folding>
         </state>
       </provider>

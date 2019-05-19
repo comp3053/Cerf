@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 class NoteDetailPage extends JFrame {
-    private String noteContent;
+    private JTextPane notePane;
     //private Date noteDate;
 
     NoteDetailPage() {
@@ -31,10 +31,7 @@ class NoteDetailPage extends JFrame {
 
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> {
-            new NotePage();
-            frame.dispose();
-        });
+        backBtn.addActionListener(e -> frame.dispose());
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
@@ -56,9 +53,9 @@ class NoteDetailPage extends JFrame {
         notePanel.setPreferredSize(new Dimension(200, 600));
         //ingredientPanel.setBackground(java.awt.Color.blue);
 
-        JTextPane notePane = new JTextPane();
+
+        notePane = new JTextPane();
         //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-        notePane.setText(noteContent);
         notePane.setEditable(false);
 
         JScrollPane listScrollPane = new JScrollPane(notePane);
@@ -82,7 +79,7 @@ class NoteDetailPage extends JFrame {
     }
 
     void setNoteContent(String noteContent) {
-        this.noteContent = noteContent;
+        notePane.setText(noteContent);
     }
 
     /*
