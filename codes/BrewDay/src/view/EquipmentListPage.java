@@ -79,7 +79,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
 
         brewData = new BrewData();
         
-        for(Equipment e : brewData.GetEquipmentList()) {
+        for(Equipment e : brewData.getEquipmentList()) {
         	String equipment = e.GetName() + "    " + e.GetSize();
         	listModel.addElement(equipment);
         }
@@ -94,7 +94,7 @@ public class EquipmentListPage extends JFrame implements ActionListener {
                 if (e.getClickCount() == 2) {
                     if (e.getClickCount() == 2) {
                         int index = jList.getSelectedIndex();
-                        Equipment equipment = brewData.GetEquipmentList().get(index);
+                        Equipment equipment = brewData.getEquipmentList().get(index);
                         controller = Controller.GetInstance();
                         controller.getEditEquipmentPage(frame,equipment);
                     }
