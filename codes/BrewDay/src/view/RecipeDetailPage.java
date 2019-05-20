@@ -15,7 +15,7 @@ public class RecipeDetailPage extends JFrame {
     private RecipeController rController;
 
     public RecipeDetailPage(Recipe recipe) {
-        JFrame frame = new JFrame("Brew Day !");
+        JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
@@ -52,7 +52,7 @@ public class RecipeDetailPage extends JFrame {
             }
         });
 
-        JButton useBtn = new JButton("USE");
+        JButton useBtn = new JButton("Use");
         useBtn.setPreferredSize(new Dimension(100, 50));
         useBtn.addActionListener(e -> {
             rController = RecipeController.GetInstance();

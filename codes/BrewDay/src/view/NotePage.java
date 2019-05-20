@@ -14,7 +14,7 @@ public class NotePage extends JFrame {
     private Controller controller;
 
     public NotePage() {
-        JFrame frame = new JFrame("Brew Day !");
+        JFrame frame = new JFrame("Brew Day!");
 
         Container container = getContentPane();
 
@@ -65,7 +65,10 @@ public class NotePage extends JFrame {
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        listModel.addElement("dddd");
+        ArrayList<Note> noteList = BrewData.getNoteList();
+        for (Note note : noteList) {
+            listModel.addElement(note.getTitle());
+        }
 
         jList.setModel(listModel);
 
@@ -76,7 +79,7 @@ public class NotePage extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
                     String noteContent = jList.getSelectedValue();
-                    ArrayList<Note> noteList = BrewData.getNoteList();
+
                     for (Note note : noteList) {
                         if (note.getTitle().equals(noteContent)) {
                             new NoteDetailPage(note);

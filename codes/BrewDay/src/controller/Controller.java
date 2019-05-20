@@ -32,12 +32,12 @@ public class Controller {
     }
 
     public void getRecipeListPage(JFrame frame) {
-        RecipeListPage recipeListPage = new RecipeListPage();
+        new RecipeListPage();
         frame.dispose();
     }
 
     public void getIngredientListPage(JFrame frame) {
-        IngredientListPage ingredientListPage = new IngredientListPage();
+        new IngredientListPage();
         frame.dispose();
     }
 
