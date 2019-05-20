@@ -1,13 +1,15 @@
 package view;
 
 import controller.Controller;
+import controller.EquipmentController;
+import controller.IngredientController;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class AddEquipmentPage extends JFrame {
     private Controller controller;
-
+    private EquipmentController eController;
     public AddEquipmentPage() {
         JFrame frame = new JFrame("Brew Day !");
 
@@ -24,39 +26,6 @@ public class AddEquipmentPage extends JFrame {
         blankPanelL.setPreferredSize(new Dimension(100, 100));
         JPanel blankPanelR = new JPanel(new BorderLayout());
         blankPanelR.setPreferredSize(new Dimension(100, 100));
-
-        /* ---------- motion Panel ---------- */
-        JPanel motionPanel = new JPanel(new GridLayout(3, 5));
-        motionPanel.setPreferredSize(new Dimension(100, 100));
-        JButton saveBtn = new JButton("SAVE");
-        saveBtn.setPreferredSize(new Dimension(100, 50));
-        saveBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getEquipmentListPage(frame);
-        });
-        JButton backBtn = new JButton("Back");
-        backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> {
-            controller = Controller.GetInstance();
-            controller.getEquipmentListPage(frame);
-        });
-
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(saveBtn);
-        motionPanel.add(new JLabel());
-        motionPanel.add(backBtn);
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-
 
         /* ---------- Content Panel ---------- */
         JPanel equipmentPanel = new JPanel(new FlowLayout());
@@ -83,7 +52,45 @@ public class AddEquipmentPage extends JFrame {
         equipmentPanel.add(namePane, BorderLayout.CENTER);
         equipmentPanel.add(amountPane, BorderLayout.CENTER);
 
+        /* ---------- motion Panel ---------- */
+        JPanel motionPanel = new JPanel(new GridLayout(3, 5));
+        motionPanel.setPreferredSize(new Dimension(100, 100));
+        JButton saveBtn = new JButton("SAVE");
+        saveBtn.setPreferredSize(new Dimension(100, 50));
+        saveBtn.addActionListener(e -> {
+            eController = EquipmentController.GetInstance();
 
+            String equipName = nameBox.getText();
+            double equipAmount = Double.valueOf(amountBox.getText());
+            eController.addEquipment(equipName, equipAmount);
+
+            controller = Controller.GetInstance();
+            controller.getEquipmentListPage(frame);
+        });
+        JButton backBtn = new JButton("Back");
+        backBtn.setPreferredSize(new Dimension(100, 50));
+        backBtn.addActionListener(e -> {
+            controller = Controller.GetInstance();
+            controller.getEquipmentListPage(frame);
+        });
+
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(saveBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(backBtn);
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+        motionPanel.add(new JLabel());
+
+        
         container.add(equipmentPanel, BorderLayout.CENTER);
         container.add(titlePanel, BorderLayout.NORTH);
         container.add(blankPanelR, BorderLayout.EAST);

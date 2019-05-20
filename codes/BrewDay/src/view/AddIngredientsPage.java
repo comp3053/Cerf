@@ -71,13 +71,13 @@ public class AddIngredientsPage extends JFrame {
             ingreController.addIngredient(ingreName, ingreAmount, ingreUnit);
 
             controller = Controller.GetInstance();
-            controller.getRecipeListPage(frame);
+            controller.getIngredientListPage(frame);
         });
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {
             controller = Controller.GetInstance();
-            controller.getRecipeListPage(frame);
+            controller.getIngredientListPage(frame);
         });
 
         motionPanel.add(new JLabel());

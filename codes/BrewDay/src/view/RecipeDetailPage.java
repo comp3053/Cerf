@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import controller.RecipeController;
 import model.BrewData;
 import model.Recipe;
 import model.RecipeIngredient;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 public class RecipeDetailPage extends JFrame {
     private Controller controller;
+    private RecipeController rController;
 
     public RecipeDetailPage(Recipe recipe) {
         JFrame frame = new JFrame("Brew Day !");
@@ -52,7 +54,13 @@ public class RecipeDetailPage extends JFrame {
 
         JButton useBtn = new JButton("USE");
         useBtn.setPreferredSize(new Dimension(100, 50));
-
+        useBtn.addActionListener(e -> {
+            rController = RecipeController.GetInstance();
+            System.out.println(rController.implement(recipe));
+            controller = Controller.GetInstance();
+            controller.getRecipeListPage(frame);
+        });
+        
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> {

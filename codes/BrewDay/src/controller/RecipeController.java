@@ -72,7 +72,12 @@ public class RecipeController {
 	public boolean implement(Recipe r) {
 		ArrayList<Recipe> available = this.recommend(1000);
 		ArrayList<StorageIngredient> newSi = new ArrayList<StorageIngredient>();
-		if(available.contains(r)) {
+		int flag = 0;
+		for(Recipe tempR : available) {
+			if(tempR.getRecipeName().equals(r.getRecipeName()))
+				flag = 1;
+		}
+		if(flag == 1) {
 			ArrayList<StorageIngredient> si = BrewData.getStorageIngredientList();
 			for(Ingredient i : si) {
 				if(r.GetIngredientList().contains(i)) {
@@ -87,3 +92,5 @@ public class RecipeController {
 		return false;
 	}
 }
+
+//System.out.println(BrewData.getStorageIngredientList().get(0).getAmount());
