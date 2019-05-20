@@ -1,11 +1,10 @@
 package view;
 
-import model.BrewData;
 import model.Note;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 class NoteDetailPage extends JFrame {
     //private Date noteDate;
@@ -32,20 +31,6 @@ class NoteDetailPage extends JFrame {
         JPanel motionPanel = new JPanel(new GridLayout(3, 5));
         motionPanel.setPreferredSize(new Dimension(100, 100));
 
-        JButton deleteBtn = new JButton("DELETE");
-        deleteBtn.setPreferredSize(new Dimension(100, 50));
-        deleteBtn.addActionListener(e -> {
-            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to delete?",
-                    "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (choice == JOptionPane.YES_OPTION) {
-                ArrayList<Note> noteList = BrewData.getNoteList();
-                noteList.remove(note);
-                BrewData.setNoteList(noteList);
-                new NotePage();
-                frame.dispose();
-            }
-        });
-
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
         backBtn.addActionListener(e -> frame.dispose());
@@ -55,8 +40,6 @@ class NoteDetailPage extends JFrame {
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
-        motionPanel.add(new JLabel());
-        motionPanel.add(deleteBtn);
         motionPanel.add(new JLabel());
         motionPanel.add(backBtn);
         motionPanel.add(new JLabel());
@@ -73,7 +56,9 @@ class NoteDetailPage extends JFrame {
 
 
         JTextPane notePane = new JTextPane();
-        //SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        notePane.setText(note.getTitle() + "\n" + note.getContent() + "\n" + ft.format(note.getDate()));
+
         notePane.setEditable(false);
 
         JScrollPane listScrollPane = new JScrollPane(notePane);

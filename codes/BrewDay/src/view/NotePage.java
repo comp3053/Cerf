@@ -2,14 +2,12 @@ package view;
 
 import controller.Controller;
 import model.BrewData;
-import model.Equipment;
 import model.Note;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class NotePage extends JFrame {
     private Controller controller;
@@ -79,12 +77,11 @@ public class NotePage extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    if (e.getClickCount() == 2) {
-                        int index = jList.getSelectedIndex();
-                        Equipment equipment = BrewData.getEquipmentList().get(index);
-                        controller = Controller.GetInstance();
-                        controller.getEditEquipmentPage(frame, equipment);
-                    }
+                    int index = jList.getSelectedIndex();
+                    Note note = BrewData.getNoteList().get(index);
+                    // controller = Controller.GetInstance();
+                    new NoteDetailPage(note);
+                    frame.dispose();
                 }
             }
         });
@@ -102,7 +99,6 @@ public class NotePage extends JFrame {
         frame.setResizable(false);
         frame.setSize(new Dimension(600, 800));
         frame.setLocation(150, 150);
-        //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

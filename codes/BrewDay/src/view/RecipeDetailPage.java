@@ -2,13 +2,12 @@ package view;
 
 import controller.Controller;
 import controller.RecipeController;
-import model.BrewData;
-import model.Recipe;
-import model.RecipeIngredient;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RecipeDetailPage extends JFrame {
     private Controller controller;
@@ -55,6 +54,10 @@ public class RecipeDetailPage extends JFrame {
         JButton useBtn = new JButton("Use");
         useBtn.setPreferredSize(new Dimension(100, 50));
         useBtn.addActionListener(e -> {
+            Note note = new Note(recipe.getRecipeName(), "", new Date());
+            ArrayList<Note> noteList = BrewData.getNoteList();
+            noteList.add(note);
+            BrewData.setNoteList(noteList);
             rController = RecipeController.GetInstance();
             System.out.println(rController.implement(recipe));
             controller = Controller.GetInstance();
