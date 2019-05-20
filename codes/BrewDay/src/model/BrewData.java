@@ -7,21 +7,36 @@ public class BrewData {
     public static ArrayList<StorageIngredient> storageIngredientList;
     private static ArrayList<Note> noteList;
     private static ArrayList<Equipment> equipmentList;
-
+    private static ArrayList<Brewing> brewingList;
+    
     public static void init() {
         recipeList = new ArrayList<>();
         storageIngredientList = new ArrayList<>();
         equipmentList = new ArrayList<>();
+        noteList = new ArrayList<>();
+        
 
-        Recipe beer = new Recipe("Beer", 1000);
-        beer.AddIngredient(new RecipeIngredient("Water", 500, "ml"));
-        recipeList.add(beer);
+        Recipe beer1 = new Recipe("Beer1", 1000);
+        beer1.AddIngredient(new RecipeIngredient("Water", 500, "ml"));
+        beer1.AddIngredient(new RecipeIngredient("Suger", 200, "g"));
+        beer1.AddIngredient(new RecipeIngredient("Yeast", 200, "g"));
+        recipeList.add(beer1);
+        
+        Recipe beer2 = new Recipe("Beer2", 1000);
+        beer2.AddIngredient(new RecipeIngredient("Water", 800, "ml"));
+        beer2.AddIngredient(new RecipeIngredient("Suger", 300, "g"));
+        beer2.AddIngredient(new RecipeIngredient("Yeast", 700, "g"));
+        recipeList.add(beer2);
 
         storageIngredientList.add(new StorageIngredient("Water", 5000, "ml"));
-        storageIngredientList.add(new StorageIngredient("Suger", 5000, "ml"));
-        storageIngredientList.add(new StorageIngredient("Yeast", 5000, "ml"));
+        storageIngredientList.add(new StorageIngredient("Suger", 3000, "ml"));
+        storageIngredientList.add(new StorageIngredient("Yeast", 4000, "ml"));
 
         equipmentList.add(new Equipment("Brewer One", 1000));
+        equipmentList.add(new Equipment("Brewer TWO", 2000));
+        equipmentList.add(new Equipment("Brewer THREE", 4000));
+        
+        
 
         /*Connection c;
         Statement stmt;
