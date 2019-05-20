@@ -81,7 +81,7 @@ public class MainPage extends JFrame {
         frame.add(container);
         frame.setResizable(false);
         frame.setSize(new Dimension(600, 800));
-        frame.setLocation(150, 150);
+        frame.setLocation(250, 0);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

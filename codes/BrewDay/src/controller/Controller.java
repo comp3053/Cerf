@@ -56,11 +56,6 @@ public class Controller {
         frame.dispose();
     }
 
-    public void getConfirmPage(JFrame frame, String situation) {
-        // ConfirmPage confirmPage = new ConfirmPage(situation);
-        // frame.dispose();
-    }
-
     public void getAddIngredientsPage(JFrame frame) {
         AddIngredientsPage addIngredientPage = new AddIngredientsPage();
         frame.dispose();

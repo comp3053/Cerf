@@ -2,14 +2,10 @@ package view;
 
 import controller.Controller;
 import controller.RecipeController;
-import model.BrewData;
-import model.Equipment;
 import model.RecipeIngredient;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class NewRecipePage extends JFrame {
@@ -148,7 +144,7 @@ public class NewRecipePage extends JFrame {
         frame.add(container);
         frame.setResizable(false);                    //Forbid window resize (maximize)
         frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
+        frame.setLocation(250, 0);                //set location
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

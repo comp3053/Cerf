@@ -98,7 +98,7 @@ public class EditIngredientsPage extends JFrame {
         frame.add(container);
         frame.setResizable(false);
         frame.setSize(new Dimension(600, 800));
-        frame.setLocation(150, 150);
+        frame.setLocation(0, 250);
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -2,7 +2,6 @@ package view;
 
 import controller.Controller;
 import controller.EquipmentController;
-import controller.IngredientController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -100,7 +99,7 @@ public class AddEquipmentPage extends JFrame {
         frame.add(container);
         frame.setResizable(false);                    //Forbid window resize (maximize)
         frame.setSize(new Dimension(600, 800));        //set window size
-        frame.setLocation(150, 150);                //set location
+        frame.setLocation(250, 0);                //set location
         //frame.setAlwaysOnTop(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
