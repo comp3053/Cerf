@@ -62,7 +62,7 @@ class NoteDetailPage extends JFrame {
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         notePane.setText(note.getTitle() + "\n" + note.getContent() + "\n" + ft.format(note.getDate()));
 
-        notePane.setEditable(false);
+        // notePane.setEditable(false);
 
         JScrollPane listScrollPane = new JScrollPane(notePane);
         notePanel.add(listScrollPane, BorderLayout.CENTER);
