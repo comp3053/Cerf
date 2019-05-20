@@ -47,6 +47,7 @@ public class Recipe {
     	Recipe convertedRecipe = new Recipe(this.name,this.size);
    		for(RecipeIngredient ri : this.GetIngredientList()) {
    			ri.setAmount(ri.getAmount()/1000*targetValue);
+   		    convertedRecipe.AddIngredient(ri);
    		}
     	return convertedRecipe;
     }

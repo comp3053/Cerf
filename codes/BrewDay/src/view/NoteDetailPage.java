@@ -33,7 +33,10 @@ class NoteDetailPage extends JFrame {
 
         JButton backBtn = new JButton("Back");
         backBtn.setPreferredSize(new Dimension(100, 50));
-        backBtn.addActionListener(e -> frame.dispose());
+        backBtn.addActionListener(e -> {
+            new NotePage();
+            frame.dispose();
+        });
 
         motionPanel.add(new JLabel());
         motionPanel.add(new JLabel());
