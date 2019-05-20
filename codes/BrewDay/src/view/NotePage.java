@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller;
 import model.BrewData;
+import model.Equipment;
 import model.Note;
 
 import javax.swing.*;
@@ -65,7 +66,10 @@ public class NotePage extends JFrame {
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        listModel.addElement("dddd");
+        for (Note n : BrewData.getNoteList()) {
+            String note = n.getTitle() + "    " + n.getDate();
+            listModel.addElement(note);
+        }
 
         jList.setModel(listModel);
 
@@ -75,12 +79,11 @@ public class NotePage extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    String noteContent = jList.getSelectedValue();
-                    ArrayList<Note> noteList = BrewData.getNoteList();
-                    for (Note note : noteList) {
-                        if (note.getTitle().equals(noteContent)) {
-                            new NoteDetailPage(note);
-                        }
+                    if (e.getClickCount() == 2) {
+                        int index = jList.getSelectedIndex();
+                        Equipment equipment = BrewData.getEquipmentList().get(index);
+                        controller = Controller.GetInstance();
+                        controller.getEditEquipmentPage(frame, equipment);
                     }
                 }
             }

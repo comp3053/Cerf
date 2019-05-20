@@ -72,8 +72,6 @@ public class IngredientListPage extends JFrame {
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
 
-        System.out.println(BrewData.storageIngredientList.size());
-
         for (StorageIngredient si : BrewData.getStorageIngredientList()) {
             String ingredient = si.getName() + "    " + si.getAmount() + si.getUnit();
             listModel.addElement(ingredient);
